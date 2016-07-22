@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<h1>{{title | uppercase}}</h1>
+			<ul>
+				<li v-repeat="todos" v-on="click: done = !done" class="{{done ? 'done' : ''}}">
+					{{content}}
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		var demo = new Vue({
+			el: '#demo',
+			data: {
+				title: 'todos',
+				todos: [{
+					done: true,
+					content: 'Learn JavaScript'
+				}, {
+					done: false,
+					content: 'Learn Vue.js'
+				}]
+			}
+		})
+	</script>
+
+</html>
