@@ -8,19 +8,37 @@
 
 	<body>
 		<div id="demo">
+			<button v-on:click="onClick(this)">触发一个方法函数</button>
 			<h1>{{title | uppercase}}</h1>
+			<h2>{{title | lowercase | reverse}}</h2>
 			<ul>
-				<li v-repeat="todos" v-on="click: done = !done" class="{{done ? 'done' : ''}}">
-					{{content}}
+				<li v-for="todo in todos" class="item-{{$index}}">
+					{{todo.content}}
 				</li>
 			</ul>
+			<input type="text" v-model="msg"> {{msg}}
+			<!--<childcomponent v-on="click: childMethod"></childcomponent>-->
 		</div>
+		<div id="demo2"></div>
 	</body>
 	<script type="text/javascript" src="vue.js"></script>
 	<script type="text/javascript">
+		Vue.filter('reverse', function(value) {
+				return value.split('').reverse().join('')
+			})
+			//		Vue.component('child-component', {
+			//			// 这次作用域对了
+			//			template: '<div v-on="click: childMethod">Child</div>',
+			//			methods: {
+			//				childMethod: function() {
+			//					console.log('child method invoked!')
+			//				}
+			//			}
+			//		})
 		var demo = new Vue({
 			el: '#demo',
 			data: {
+				msg: 'hello',
 				title: 'todos',
 				todos: [{
 					done: true,
@@ -28,9 +46,59 @@
 				}, {
 					done: false,
 					content: 'Learn Vue.js'
-				}]
-			}
-		})
+				}],
+				firstName: 'Foo',
+				lastName: 'Bar'
+			},
+
+			methods: {
+				onClick: function(e) {
+					console.log('123')
+					console.log(e);
+					alert('123');
+				}
+			},
+
+			computed: {
+				fullName: {
+					// getter 应返回计算后的值
+					get: function() {
+						return this.firstName + ' ' + this.lastName
+					},
+					// setter 是可选的
+					set: function(newValue) {
+						var names = newValue.split(' ')
+						this.firstName = names[0]
+						this.lastName = names[names.length - 1]
+					},
+
+					test: function() {
+						console.log('compute');
+					}
+				}
+			},
+
+//			component: {
+//				'childcomponent': {
+//					// 这次作用域对了
+//					template: '<div v-on="click: childMethod">Child</div>',
+//					methods: {
+//						childMethod: function() {
+//							console.log('child method invoked!')
+//						}
+//					}
+//				}
+//			},
+		});
+
+		demo.$data;
+		console.log(demo.$data);
+		demo.title = 'jialong';
+		demo.fullName;
+		console.log(demo.fullName);
+		demo.onClick = function(e) {
+			alert("456");
+		}
 	</script>
 
 </html>
