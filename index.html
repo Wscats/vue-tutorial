@@ -48,7 +48,8 @@
 					content: 'Learn Vue.js'
 				}],
 				firstName: 'Foo',
-				lastName: 'Bar'
+				lastName: 'Bar',
+				name: '',
 			},
 
 			methods: {
@@ -77,22 +78,26 @@
 					}
 				}
 			},
+			ready() {
+				console.log('abc');
+			}
 
-//			component: {
-//				'childcomponent': {
-//					// 这次作用域对了
-//					template: '<div v-on="click: childMethod">Child</div>',
-//					methods: {
-//						childMethod: function() {
-//							console.log('child method invoked!')
-//						}
-//					}
-//				}
-//			},
+			//			component: {
+			//				'childcomponent': {
+			//					// 这次作用域对了
+			//					template: '<div v-on="click: childMethod">Child</div>',
+			//					methods: {
+			//						childMethod: function() {
+			//							console.log('child method invoked!')
+			//						}
+			//					}
+			//				}
+			//			},
 		});
-
+		demo.$set('name', 'yjl');
 		demo.$data;
 		console.log(demo.$data);
+		console.log(demo.$el);
 		demo.title = 'jialong';
 		demo.fullName;
 		console.log(demo.fullName);
