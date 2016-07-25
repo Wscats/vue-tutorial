@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
-	<script type="text/javascript" src="vue.js" ></script>
+	<script type="text/javascript" src="vue.js"></script>
+
 	<body>
 		<article id="demo">
 			<p>{{url}}</p>
@@ -13,7 +15,7 @@
 			<button v-on:click="onClick()">Ok</button>
 			<button v-on:click="onClick2()">Ok</button>
 		</article>
-		
+
 		<article id="demo2">
 			<p>{{url}}</p>
 			{{name}}
@@ -24,44 +26,57 @@
 	</body>
 	<script>
 		var demo = new Vue({
-			el:"#demo",
-			data:{
-				name:'yao',
-				url:'www.baidu.com',
+			el: "#demo",
+			data: {
+				name: 'yao',
+				url: 'www.baidu.com',
 			},
 			/*directive:{
 				template: "<script type='text/javascript' src='../js/jquery.js' />",
 			},*/
-			methods:{
-				onClick:function(){
+			methods: {
+				onClick: function() {
 					alert("123");
 				},
-				onClick2:function(){
+				onClick2: function() {
 					alert("456");
 				},
 			},
+
+			//			ready(){
+			//				alert("123");
+			//			}
+
+			ready() {
+				console.log('abc');
+				alert("123");
+				this.$set('name', 'oay');
+				console.log();
+				//				$http.get('').success(function(data){
+				//					this.$set('name','oay');
+				//				})
+			}
+
 		});
-		
+
 		var demo2 = new Vue({
-			el:"#demo2",
-			data:{
-				name:'yao',
-				url:'www.baidu.com',
+			el: "#demo2",
+			data: {
+				name: 'yao',
+				url: 'www.baidu.com',
 			},
-			methods:{
-				onClick:function(){
+			methods: {
+				onClick: function() {
 					alert("123");
 				},
-				onClick2:function(){
+				onClick2: function() {
 					alert("456");
 				},
 			},
 		});
 		console.log(demo2);
-		demo2.$data.name
-		;   ;  ;;;;
-		; ; ;   ;
-		;   ;  ;;;;
+		demo2.$data.name;;;;;;;;;;;;;;;;
 		console.log(demo2.$get('name'));
 	</script>
+
 </html>
