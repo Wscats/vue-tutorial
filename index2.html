@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="vue.js" ></script>
+	<body>
+		<article id="demo">
+			<p>{{url}}</p>
+			{{name}}
+			<input v-model="name" />
+			<button v-on:click="onClick()">Ok</button>
+			<button v-on:click="onClick2()">Ok</button>
+		</article>
+		
+		<article id="demo2">
+			<p>{{url}}</p>
+			{{name}}
+			<input v-model="name" />
+			<button v-on:click="onClick()">Ok</button>
+			<button v-on:click="onClick2()">Ok</button>
+		</article>
+	</body>
+	<script>
+		var demo = new Vue({
+			el:"#demo",
+			data:{
+				name:'yao',
+				url:'www.baidu.com',
+			},
+			/*directive:{
+				template: "<script type='text/javascript' src='../js/jquery.js' />",
+			},*/
+			methods:{
+				onClick:function(){
+					alert("123");
+				},
+				onClick2:function(){
+					alert("456");
+				},
+			},
+		});
+		
+		var demo2 = new Vue({
+			el:"#demo2",
+			data:{
+				name:'yao',
+				url:'www.baidu.com',
+			},
+			methods:{
+				onClick:function(){
+					alert("123");
+				},
+				onClick2:function(){
+					alert("456");
+				},
+			},
+		});
+		console.log(demo2);
+		demo2.$data.name
+		;   ;  ;;;;
+		; ; ;   ;
+		;   ;  ;;;;
+		console.log(demo2.$get('name'));
+	</script>
+</html>

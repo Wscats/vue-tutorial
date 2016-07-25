@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="angular.js"></script>
+	</head>
+
+	<body>
+		<article ng-controller="demoController">
+			<p>{{url}}</p>
+			{{name}}
+			<button ng-click="onClick()">Ok</button>
+			<button ng-click="onClick2()">Ok</button>
+		</article>
+		
+		<article ng-controller="demoController2">
+			<p>{{url}}</p>
+			{{name}}
+			<button ng-click="onClick()">Ok</button>
+			<button ng-click="onClick2()">Ok</button>
+		</article>
+	</body>
+	<script>
+		var demo = angular.module('demoApp', []);
+		demo.controller('demoController', ['$scope', function($scope) {
+			var data = {
+				url: $scope.url = 'www.baidu.com',
+				name: $scope.name = 'yao',
+				skill: $scope.skill = 'chuiniubi',
+			}
+
+			var method = {
+				onClick: $scope.onClick = function() {
+					alert("123");
+				},
+				
+				onClick2: $scope.onClick2 = function() {
+					alert("456");
+				}
+			}
+		}])
+		
+		demo.controller('demoController2', ['$scope', function($scope) {
+			var data = {
+				url: $scope.url = 'www.baidu.com',
+				name: $scope.name = 'yao',
+				skill: $scope.skill = 'chuiniubi',
+			}
+
+			var method = {
+				onClick: $scope.onClick = function() {
+					alert("123");
+				},
+				
+				onClick2: $scope.onClick2 = function() {
+					alert("456");
+				}
+			}
+		}])
+	</script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="vue.js" ></script>
+	<body>
+		<article id="demo">
+			<p>{{url}}</p>
+			{{name}}
+			<button v-on:click="onClick()">Ok</button>
+			<button v-on:click="onClick2()">Ok</button>
+		</article>
+	</body>
+	<script>
+		demoController = {
+		//这个对象里面的参数第一个是写一个选择器： el:[selector];
+			el:"#demo",
+			data:{
+				//理解为angualr $scope绑定数据到view层  data.name(vue) === $scope.name(angularssss)
+				//method.onClick(vue) === $scope.onClick
+				name:'yao',
+				skill:'chuiniubi',
+				route:'',
+				url:'',
+				example1:'',
+			},
+			methods:{
+				onClick:function(){
+					alert("123");
+				},
+				onClick2:function(){
+					alert("456");
+				},
+			},
+			//$scope.onClick = function(){}
+		}
+		//Vue构造函数 理解为angular里面的控制器
+		var demo = new Vue(demoController);
+		console.log(demo);
+		//demo.$data.url = "www.baidu.com";
+		//第二个方法
+		demo.url = "www.baidu.com";
+		//相当于在angular是这样赋值
+		//$scope.url = "www.baidu.com"
+		demo.$data.example = 'example';
+		demo.$set('example1','example1');
+		console.log(demo.$el);
+		console.log(demo.$data);
+		/*$http.get().success(function(data){
+			$scope.data = data;
+		})*/
+		
+		//document.getElementById('demo');
+		/*var obj = {};
+		var obj = new Object();
+		//构造函数创建对象
+		var constru = function(par){
+			this.name = 'yao';
+			console.log(par.name)
+		}
+		obj.url = "www.baidu.com";
+		var obj = new constru({name:'yao'});*/
+	</script>
+</html>
