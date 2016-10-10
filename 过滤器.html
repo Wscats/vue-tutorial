@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body id="demo">
+		<!--vue过滤器也是在这个表达式{{}}里面用管道符号加上这个过滤器的名字-->
+		<p style="color:red">lowercase 全部变小写</p>
+		<p>{{name|lowercase}}</p>
+		<p style="color:red">uppercase 全部变大写</p>
+		<p>{{name|uppercase}}</p>
+		<p style="color:red">capitalize 首字母大写</p>
+		<p>{{name|capitalize}}</p>
+		<p style="color:red">currency 数字转货币</p>
+		<p>{{num|currency '✿'}}</p>
+		<p style="color:red">pluralize 单词变复数</p>
+		<p>{{arrs|pluralize 'st' 'nd'}}</p>
+		<p style="color:red">json 对象转json</p>
+		<p>{{json|json 10}}</p>
+		<p style="color:red">filterBy 筛选数组的结果</p>
+		<input v-model="filter" />
+		<select v-model="filter2">
+			<option value="name">name</option>
+			<option value="age">age</option>
+		</select>
+		<!--filterBy 的格式为 filterBy 筛选的关键词 in 筛选的属性-->
+		<ul>
+			<li v-for="arr in arrs|filterBy filter in filter2">name:{{arr.name}} age:{{arr.age}}</li>
+		</ul>
+		<p style="color:red">orderBy 排序数组的结果</p>
+		<!--接受两个参数，第一个是需要根据属性排序的属性值，第二个是控制排序的方法是升序还是降序的值，正数是降序，负数是升序-->
+		<button @click="order=-order">排序</button> {{order}}
+		<ul>
+			<li v-for="arr in arrs|orderBy 'age' order">name:{{arr.name}} age:{{arr.age}}</li>
+		</ul>
+		<input v-model="filter" />
+		<select v-model="filter2">
+			<option value="name">name</option>
+			<option value="age">age</option>
+		</select>
+		<button @click="order=-order">排序</button>
+		<!--filterBy 的格式为 filterBy 筛选的关键词 in 筛选的属性-->
+		<ul>
+			<li v-for="arr in arrs|filterBy filter in filter2|orderBy 'age' order">name:{{arr.name}} age:{{arr.age}}</li>
+		</ul>
+		<p style="color:red">limitBy 限制输出结果的长度</p>
+		<p>{{name|limitBy -2}}</p>
+		<!--limitBy 控制渲染的长度 从那一条开始渲染-->
+		<ul>
+			<li v-for="arr in arrs|limitBy 10 3">name:{{arr.name}} age:{{arr.age}}</li>
+		</ul>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: '#demo',
+			data: {
+				name: 'wSsCaT',
+				num: 100,
+				json: {
+					name: 'wsscat',
+					age: 1
+				},
+				arrs: [{
+					name: "abc",
+					age: 1
+				}, {
+					name: "abcd",
+					age: 3
+				}, {
+					name: "dcba",
+					age: 2
+				}, {
+					name: "asfsa",
+					age: 4
+				}, {
+					name: "trh",
+					age: 6
+				}],
+				filter: '',
+				filter2: '',
+				order: 1,
+			},
+			methods: {}
+		})
+	</script>
+
+</html>
