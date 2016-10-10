@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<!--vue-->
+	<!--react-->
+	<!--jquery-->
+	<!--angular-->
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.red{
+			color: red;
+		}
+	</style>
+
+	<body>
+		<!--webpack nodejs .vue-->
+		<div id="demo">
+			<!--v-text-->
+			<p style="color:red">v-text</p>
+			<p v-text="name"></p>
+			<!--{{}}-->
+			<!--v-html-->
+			<!--v-html有输入的地方-->
+			<!--input textarea xss-->
+			<p style="color:red">v-html</p>
+			<div v-html="html"></div>
+			<!--v-model-->
+			<p style="color:red">v-model</p>
+			<input v-model="name" /> {{name}}
+			<!--v-show-->
+			<p style="color:red">v-show</p>
+			<p v-show="bool">{{name}}</p>
+			<button @click="bool=!bool">Ok</button>
+			<!--v-if-->
+			<p style="color:red">v-if&&v-else</p>
+			<p v-if="num>9">if</p>
+			<p v-else>else</p>
+			<!--v-repeat&&v-for $index-->
+			<p style="color:red">v-for</p>
+			<ul>
+				<li v-for="arr in arrs" id="for_{{$index}}">{{arr.name}}</li>
+			</ul>
+			<select>
+				<option></option>
+			</select>
+			<ul>
+				<li v-for="o in obj">{{o}}</li>
+			</ul>
+			<!--<ul>
+				<li v-for="n in name track-by $index">{{n}}</li>
+			</ul>-->
+			<!--<ul>
+				<li v-for="i in num">{{i}}</li>
+			</ul>-->
+			<p style="color:red">v-on @</p>
+			<button v-on:click="methods()">Ok</button>
+			<button @click="methods()">Ok</button>
+			<p style="color:red">v-bind :</p>
+			<!--<img v-bind:src="imgUrl" />
+			<a v-bind:href="imgUrl">imgUrl</a>-->
+			<img :src="imgUrl" />
+			<a :href="imgUrl">imgUrl</a>
+			<p :class="{red:bool}">red</p>
+			<p class="{{bool?'red':''}}">red</p>
+			<button @click="bool=!bool">Ok</button>
+			<input type="range" v-model='size' />
+			<p :style="{'fontSize': size+'px','color':'blue'}">fontSize</p>
+		</div>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: '#demo',
+			data: {
+				name: 'wsscat',
+				bool: true,
+				num: '87214',
+				html: '<p>wsscat html</p>',
+				arrs: [{
+					name: 'a'
+				}, {
+					name: 'b'
+				}, {
+					name: 'c'
+				}],
+				obj: {
+					name: 'wsscat',
+					skill: 'ps',
+					age: 0
+				},
+				imgUrl:'1.png',
+				size:20,
+			},
+			methods: {
+				methods: function() {
+					alert("methods")
+				}
+			}
+			//template:"<p>{{name}}</p>",
+		})
+	</script>
+
+</html>
