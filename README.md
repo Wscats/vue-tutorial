@@ -16,4 +16,4 @@
 
 [自定义指令demo](https://wscats.github.io/vue-demo/自定义指令.html)
 
-[组件demo](https://wscats.github.io/vue-demo/自定义指令.html)
+[组件demo](https://wscats.github.io/vue-demo/组件.html)
