@@ -15,3 +15,5 @@
 [滑动手势demo](https://wscats.github.io/vue-demo/滑动手势指令.html)
 
 [自定义指令demo](https://wscats.github.io/vue-demo/自定义指令.html)
+
+[组件demo](https://wscats.github.io/vue-demo/自定义指令.html)
