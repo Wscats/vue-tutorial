@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body id="demo">
+		<div v-demo:hello.a.b.c="msg"></div>
+		<button v-cclick:click="test()">Ok</button>
+		<input v-model="name" />
+		<p v-wsscat="name" a="1" b="arr">{{name}}</p>
+	</body>
+	<script src="https://wscats.github.io/vue-demo/vue.js"></script>
+	<script>
+		Vue.directive('demo', {
+			bind: function() {
+				console.log('demo bound!')
+			},
+			update: function(value) {
+				this.el.innerHTML =
+					'name - ' + this.name + '<br>' +
+					'expression - ' + this.expression + '<br>' +
+					'argument - ' + this.arg + '<br>' +
+					'modifiers - ' + JSON.stringify(this.modifiers) + '<br>' +
+					'value - ' + value
+			}
+		})
+		Vue.directive('cclick', {
+			//bind就是先帮我们绑定，但不去执行这个test()函数，而updata则是绑定完后执行一次，后面每次更新都去执行一次
+			bind: function(value) {
+				var self = this;
+				//指令的名字，不包含前缀 v-cclick:click="test()"中的cclick
+				console.log(this.name)
+					//指令的表达式，不包括参数和过滤器 v-cclick:click="test()"中的test()
+				console.log(this.expression)
+					//指令的参数 v-cclick:click="test()"中的click
+				console.log(this.arg)
+				this.el.addEventListener(this.arg, function(e) {
+					self.expression.substring(0, self.expression.length - 2);
+					//把test()转化为test，方便我们后面调用
+					//console.log(self.expression.substring(0, self.expression.length - 2));
+					//如果v-cclick:click="test"，注意test没有加括号的时候我们就可以这样写
+					//self.vm[self.expression]()
+					self.vm[self.expression.substring(0, self.expression.length - 2)]()
+				});
+			},
+		})
+		var demo = new Vue({
+			el: '#demo',
+			data: {
+				msg: 'hello!',
+				name: 'wsscat',
+				arr:['a','b','c'],
+			},
+			methods: {
+				test: function() {
+					console.log("test test")
+				}
+			},
+			directives: {
+				wsscat: {
+					params: ['a','b'],
+					bind: function() {
+						console.log("wsscat")
+					},
+					update: function(newValue, oldValue) {
+						console.log(this.params)
+						console.log('new:' + newValue);
+						console.log('old:' + oldValue);
+						this.el.style.color = 'blue';
+						if(newValue=='red'){
+							this.el.style.color = 'red';
+						}else if(newValue=='yellow'){
+							this.el.style.color = 'yellow';
+						}else{
+							this.el.style.color = 'green';
+						}
+						this.el.addEventListener('touchstart',function(e){
+							console.log(e)
+						})
+					}
+				}
+			}
+		})
+	</script>
+
+</html>
