@@ -9,3 +9,5 @@
 [指令demo](https://wscats.github.io/vue-demo/指令.html)
 
 [过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)
+
+[过渡demo](https://wscats.github.io/vue-demo/过渡.html)
