@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<p class="A1" v-touch='name' :a="name" b="abc">{{name}}</p>
+		</div>
+	</body>
+	<script src="https://wscats.github.io/vue-demo/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#demo',
+			data: {
+				name: 'wsscat'
+			},
+			methods: {
+
+			},
+			//私有的指令
+			directives: {
+				touch: {
+					params: ['a', 'b'],
+					bind: function(value) {
+						console.log(this.params)
+
+						function direction() {
+							if(Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd)) {
+								if(xStart >= xEnd) {
+									console.log("left")
+								} else {
+									console.log("right")
+								}
+							} else {
+								if(yStart >= yEnd) {
+									console.log("up")
+								} else {
+									console.log("down")
+								}
+							}
+						}
+						var xStart, xEnd, yStart, yEnd;
+						this.el.addEventListener('touchstart', function(e) {
+							//console.log("start:")
+							//console.log(e)
+							xStart = e.targetTouches[0].pageX;
+							yStart = e.targetTouches[0].pageY;
+						});
+						this.el.addEventListener('touchend', function(e) {
+							//console.log("end")
+							//console.log(e)
+							xEnd = e.changedTouches[0].pageX;
+							yEnd = e.changedTouches[0].pageY
+							direction(xStart, xEnd, yStart, yEnd)
+						})
+					}
+				}
+			}
+		})
+	</script>
+</html>
