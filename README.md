@@ -4,6 +4,6 @@
 
 [Vue-router](https://wscats.github.io/vue-demo/vue-router.js)
 
-[路由demo](https://github.com/Wscats/vue-demo/blob/master/route.html)
+[路由demo](https://wscats.github.io/vue-demo/路由.html)
 
 [指令demo](https://wscats.github.io/vue-demo/指令.html)
