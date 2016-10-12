@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/* 必需 */
+		/*伸展动画*/
+		
+		.expand-transition {
+			transition: all .3s ease;
+			height: 20px;
+			padding: 10px;
+			background-color: #eee;
+			overflow: hidden;
+		}
+		/* .expand-enter 定义进入的开始状态 */
+		/* .expand-leave 定义离开的结束状态 */
+		
+		.expand-enter,
+		.expand-leave {
+			height: 0;
+			padding: 0 10px;
+			opacity: 0;
+		}
+		/*旋转动画*/
+		
+		.rotate-transition {
+			transition: all .3s ease;
+			height: 20px;
+			padding: 10px;
+			background-color: #eee;
+			overflow: hidden;
+		}
+		/* .expand-enter 定义进入的开始状态 */
+		/* .expand-leave 定义离开的结束状态 */
+		
+		.rotate-enter,
+		.rotate-leave {
+			height: 0;
+			padding: 0 10px;
+			opacity: 0;
+			transform: rotate(360deg);
+		}
+		/*动画进行时候插入的类*/
+		
+		.In {
+			background-color: #0062CC;
+		}
+		
+		.Out {
+			background-color: #2AC845;
+		}
+		
+		.staggered-transition {
+			transition: all .5s ease;
+			overflow: hidden;
+			margin: 0;
+			height: 20px;
+		}
+		
+		.staggered-enter,
+		.staggered-leave {
+			opacity: 0;
+			height: 0;
+		}
+	</style>
+
+	<body id="demo">
+		<!--为了应用过渡效果，需要在目标元素上使用 transition-->
+		<!--transition 特性可以与下面资源一起用：
+			v-if
+			v-show
+			v-for （只在插入和删除时触发，使用 vue-animated-list 插件）
+		-->
+		<p style="color:red">v-if</p>
+		<div v-if="fi" transition="expand">hello wsscat</div>
+		<button @click="fi=!fi">toggle</button>
+
+		<p style="color:red">v-show</p>
+		<div v-show="show" transition="expand">hello wsscat</div>
+		<button @click="show=!show">toggle</button>
+
+		<p style="color:red">v-show 动态绑定</p>
+		<select v-model="tran">
+			<option value="expand">expand</option>
+			<option value="rotate">rotate</option>
+		</select>
+		<div v-show="show1" :transition="tran">hello wsscat</div>
+		<button @click="show1=!show1">toggle</button>
+
+		<p style="color:red">v-for</p>
+		<input v-model="query">
+		<li v-for="item in list | filterBy query" transition="staggered" stagger="100">
+			{{item.msg}}
+		</li>
+	</body>
+	<script src="../vue.js"></script>
+	<script>
+		//全局定义
+		//JavaScript钩子,动画发生时候改变动画所在标签的值，enter和afterEnter最为明显
+		Vue.transition('expand', {
+			beforeEnter: function(el) {
+				el.textContent = 'beforeEnter'
+			},
+			enter: function(el) {
+				el.textContent = 'enter'
+			},
+			afterEnter: function(el) {
+				el.textContent = 'afterEnter'
+			},
+			enterCancelled: function(el) {
+				// handle cancellation
+			},
+			beforeLeave: function(el) {
+				el.textContent = 'beforeLeave'
+			},
+			leave: function(el) {
+				el.textContent = 'leave'
+			},
+			afterLeave: function(el) {
+				el.textContent = 'afterLeave'
+			},
+			leaveCancelled: function(el) {
+				// handle cancellation
+			}
+		})
+
+		new Vue({
+			el: '#demo',
+			data: {
+				name: 'wsscat',
+				fi: true,
+				show: true,
+				show1: true,
+				tran: 'expand',
+				query: '',
+				//v-for的列表数据
+				list: [{
+					msg: 'Bruce Lee'
+				}, {
+					msg: 'Jackie Chan'
+				}, {
+					msg: 'Chuck Norris'
+				}, {
+					msg: 'Jet Li'
+				}, {
+					msg: 'Kung Fury'
+				}]
+			},
+			//局部定义
+			transitions: {
+				rotate: {
+					//定义动画进入前后加载的类名
+					enterClass: 'In',
+					leaveClass: 'Out',
+					enter: function(el) {
+						el.textContent = 'Hello'
+					},
+					afterEnter: function(el) {
+						el.textContent = 'Bye'
+					},
+				}
+			}
+		})
+	</script>
+
+</html>
