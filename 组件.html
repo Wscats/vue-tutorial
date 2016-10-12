@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<p>{{name}}</p>
+			<wsscat v-bind:msg="name"></wsscat>
+			<mine></mine>
+		</div>
+	</body>
+	<script src="https://wscats.github.io/vue-demo/vue.js"></script>
+	<script type="text/template" id="tpl">
+		<div>Hello {{name}}</div>
+		<div>{{msg}}</div>
+	</script>
+	<template id="mineTpl">
+         <div>Hello {{name}}</div>
+		 <div>{{msg}}</div>
+ 	</template>
+	<!--<template id＝"tpl">
+		<div>Hello {{name}}</div>
+	</template>-->
+	<script>
+		var wsscat = Vue.extend({
+			template: '#tpl',
+			props:['msg'],
+			data: function() {
+				return {
+					name: 'Wsscat'
+				}
+			}
+		})
+		
+		var me = Vue.extend({
+			template: '#mineTpl',
+			props:['msg'],
+			data: function() {
+				return {
+					name: 'Wsscat'
+				}
+			}
+		})
+		
+		Vue.component('mine',{   //这里就是注册的内容
+           template : '#mineTpl'
+        });
+
+		// 注册
+		Vue.component('wsscat', wsscat)
+		Vue.component('mine', me)
+		new Vue({
+			el: '#demo',
+			data: {
+				name: 'wsscats'
+			}
+		})
+	</script>
+
+</html>
