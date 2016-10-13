@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.view{
+			border: 1px solid #E14D43;
+		}
+	</style>
+	<body>
+		<div id="demo">
+			<p>{{name}}</p>
+			<button @click="wsscat()">wsscat</button>
+			<button @click="tacssw()">tacssw</button>
+			<router-view class="view"></router-view>
+		</div>
+	</body>
+	<script src="https://wscats.github.io/vue-demo/vue.js"></script>
+	<script src="https://wscats.github.io/vue-demo/vue-router.js"></script>
+	<script>
+		var wsscat = Vue.extend({
+			template: '<div>wsscat<div><router-view></router-view>'
+		})
+		var tacssw = Vue.extend({
+			template: '<div>tacssw<div>'
+		})
+		var app = Vue.extend({
+				data: function() {
+					return {
+						name: 'wsscat'
+					}
+				},
+				methods:{
+					wsscat:function(){
+						window.location.href = '#!/wsscat/a/4';
+					},
+					tacssw:function(){
+						window.location.href = '#!/tacssw';
+					}
+				}
+			})
+			//定义路由对象
+		var router = new VueRouter();
+		router.map({
+			'/wsscat': {
+				component: wsscat,
+				//路由嵌套
+				subRoutes: {
+					'/a/:id': {
+						component: {
+							template: '<button @click="toParams()">点击按钮传递数据到子路由b</button><div>a</div>',
+							methods: {
+								toParams: function() {
+									window.location.href = '#!/wsscat/b' + '/1'
+								}
+							},
+							route: {
+								data: function(transition) {
+									console.log(transition)
+								}
+							}
+						},
+					},
+					'/b/:id': {
+						component: {
+							template: '<button @click="toParams()">点击按钮传递数据到子路由a</button><div>b</div>',
+							methods: {
+								toParams: function() {
+									window.location.href = '#!/wsscat/a' + '/2'
+								}
+							},
+							route: {
+								data: function(transition) {
+									console.log(transition)
+								}
+							}
+						},
+					}
+				}
+			},
+			'/tacssw': {
+				component: tacssw
+			}
+		})
+		router.redirect({
+			'*': '/wsscat/a/3'
+		})
+		router.start(app, '#demo')
+	</script>
+
+</html>
