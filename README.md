@@ -12,6 +12,7 @@
 [过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)
 
 [过渡demo](https://wscats.github.io/vue-demo/过渡.html)
+[过渡demo2](https://wscats.github.io/vue-demo/过渡2.html)
 
 [滑动手势demo](https://wscats.github.io/vue-demo/滑动手势指令.html)
 
