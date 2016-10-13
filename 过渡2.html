@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/*进场过度 .expend-enter=>.expend-transition*/
+		/*离场过度 .expend-transition=>.expend-leave*/
+		/*渲染完成后状态*/
+		.expend-transition{
+			transition: all .3s ease;
+			height: 20px;
+			opacity: 1;
+			background-color: #eee;
+			padding: 10px;
+		}
+		.expend-enter{
+			height: 0px;
+			opacity: 0;
+			padding: 0 10px;
+		}
+		.expend-leave{
+			height: 0px;
+			opacity: 0;
+			padding: 0 10px;
+		}
+		/*eno => one*/
+		.rotate-transition{
+			transition: all .3s ease;
+			height: 20;
+			opacity:1;
+			background-color: #eee;
+			padding: 10px;
+		}
+		.rotate-enter{
+			height: 0;
+			opacity:0;
+			transform: rotate(360deg);
+			padding: 0 10px;
+		}
+		
+		.rotate-leave{
+			height: 0;
+			opacity:0;
+			transform: rotate(360deg);
+			padding: 0 10px;
+		}
+		
+		.staggered-transition{
+			transition: all .6s ease;
+			height: 20px;
+			opacity: 1;
+		}
+		
+		.staggered-enter,
+		.staggered-leave{
+			height: 0px;
+			opacity: 0;
+		}
+	</style>
+	<body>
+		<div id="demo">
+			<p style="color: red;">
+				v-if
+			</p>
+			<button @click="fi=!fi">Ok</button>
+			<div v-if="fi" transition="expend">hello wsscat</div>
+			<p style="color: red;">
+				v-show
+			</p>
+			<select v-model='tran'>
+				<option value="expend">expend</option>
+				<option value="rotate">rotate</option>
+			</select>
+			<button @click="show=!show">Ok</button>
+			<div v-show="show" :transition="tran">hello wsscat</div>
+			
+			<p style="color: red;">
+				v-for
+			</p>
+			<input v-model="params" />
+			<ul>
+				<li v-for="item in items|filterBy params" transition="staggered">{{item.msg}}</li>
+			</ul>
+		</div>
+		<!--
+			v-if     ng-if
+			v-show   ng-show
+			v-for ng-repeat
+		-->
+	</body>
+	<script src="https://wscats.github.io/vue-demo/vue.js"></script>
+	<script>
+		var demo = new Vue({
+			el:'#demo',
+			data:{
+				name:'wsscat',
+				fi:true,
+				show:true,
+				tran:'rotate',
+				items:[{
+					msg:'asdflndsakf'
+				},{
+					msg:'nlsajgflsabdnf'
+				},{
+					msg:'tynrkybhbkr'
+				},{
+					msg:'pjdsgkfdnskjg'
+				},{
+					msg:'tbrkjbtrjewhr'
+				}],
+				params:''
+			},
+			methods:{
+				
+			}
+		})
+	</script>
+</html>
