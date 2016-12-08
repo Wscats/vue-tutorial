@@ -2,6 +2,9 @@
 | Demo |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[NewsDemo](https://wscats.github.io/vue-demo/news/index.html)|
+|[vue计算属性](https://wscats.github.io/vue-demo/vue计算属性.html)|
+|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)|
+
 
 ## 路由
 | Controller |
