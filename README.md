@@ -19,3 +19,9 @@
 [自定义指令demo](https://wscats.github.io/vue-demo/自定义指令.html)
 
 [组件demo](https://wscats.github.io/vue-demo/组件.html)
+
+## 路由
+| Controller |
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[路由demo](https://wscats.github.io/vue-demo/路由.html)|
+|[路由demo2](https://wscats.github.io/vue-demo/路由2.html)|
