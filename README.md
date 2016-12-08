@@ -4,10 +4,6 @@
 
 [Vue-router](https://wscats.github.io/vue-demo/vue-router.js)
 
-[路由demo](https://wscats.github.io/vue-demo/路由.html)
-[路由demo2](https://wscats.github.io/vue-demo/路由2.html)
-
-[指令demo](https://wscats.github.io/vue-demo/指令.html)
 
 [过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)
 
@@ -25,3 +21,9 @@
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[路由demo](https://wscats.github.io/vue-demo/路由.html)|
 |[路由demo2](https://wscats.github.io/vue-demo/路由2.html)|
+
+
+## 指令
+| directive |
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[指令demo](https://wscats.github.io/vue-demo/指令.html)|
