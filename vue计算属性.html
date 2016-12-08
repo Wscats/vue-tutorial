@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+		<div id="app">
+			{{fullName}}
+		</div>
+		<script src="vue.js"></script>
+		<script>
+			var vm = new Vue({
+				data: {
+					firstName: 'Wind',
+					lastName: 'Cat',
+					//fullName: 'Wind Cat'
+				},
+				computed: {
+					//数据根据提供的数据计算出来
+					fullName: function() {
+						return this.firstName + " " + this.lastName
+					}
+				}
+			});
+			vm.$mount('#app');
+		</script>
+	</body>
+
+</html>
