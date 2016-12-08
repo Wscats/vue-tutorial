@@ -22,7 +22,7 @@
 | Filter |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|
-|[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|
+|[过滤器实现分页demo](https://wscats.github.io/vue-demo/vue使用过滤器实现分页.html)|
 
 ## 过渡
 | Transition |
