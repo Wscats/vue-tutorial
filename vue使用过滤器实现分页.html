@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body id="demo">
+		<select v-model="page">
+			<option value="0">1</option>
+			<option value="3">2</option>
+			<option value="6">3</option>
+		</select>
+		<button @click="page=0">第一页</button>
+		<button @click="page=3">第二页</button>
+		<button @click="page=6">第三页</button>
+		<button @click="pre()">上一页</button>
+		<button @click="next()">下一页</button>
+		<ul>
+			<li v-for="arr in arrs|limitBy 3 page">{{arr.name}}</li>
+		</ul>
+	</body>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: '#demo',
+			data: {
+				page: 0,
+				arrs: [{
+					name: 'ewrqre',
+					text: 'wretwe',
+					id: 2
+				}, {
+					name: 'wretwe',
+					id: 1
+				}, {
+					name: 'fgbfgb',
+					id: 3
+				}, {
+					name: 'bvcbsf',
+					id: 4
+				}, {
+					name: 'iujgyd',
+					id: 6
+				}, {
+					name: 'masds',
+					id: 7
+				}, {
+					name: 'hfhfghf',
+					id: 8
+				}, {
+					name: 'jgghjgj',
+					id: 9
+				}, {
+					name: 'iyuiyui',
+					id: 10
+				}],
+			},
+			methods: {
+				next: function() {
+					console.log(this.page)
+					if(this.page >= 6) {
+						this.page;
+					} else {
+						this.page += 3
+					}
+
+				},
+				pre: function() {
+					if(this.page == 0) {
+						this.page = 0
+					} else {
+						this.page -= 3
+					}
+
+				}
+			}
+		});
+	</script>
+
+</html>
