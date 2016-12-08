@@ -1,3 +1,8 @@
+##
+| Demo |
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[NewsDemo](https://wscats.github.io/vue-demo/news/index.html)|
+
 ## 路由
 | Controller |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
@@ -17,15 +22,15 @@
 | filter |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|
+|[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|
 
 ## 过渡
 | transition |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|
 |[过渡demo](https://wscats.github.io/vue-demo/过渡.html)|
 |[过渡demo2](https://wscats.github.io/vue-demo/过渡2.html)|
 
-## 过渡
+## 组件
 | component |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[组件demo](https://wscats.github.io/vue-demo/组件.html)|
