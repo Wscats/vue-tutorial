@@ -1,8 +1,7 @@
 ## AppDemo
-| Demo ||
+| Demo |||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[NewsDemo](https://wscats.github.io/vue-demo/news/index.html)|[vue计算属性](https://wscats.github.io/vue-demo/vue计算属性.html)|
-|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)||
+|[NewsDemo](https://wscats.github.io/vue-demo/news/index.html)|[vue计算属性](https://wscats.github.io/vue-demo/vue计算属性.html)|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)|
 
 
 ## 路由
@@ -12,19 +11,15 @@
 
 
 ## 指令
-| Directive |
+| Directive |||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[指令demo](https://wscats.github.io/vue-demo/指令.html)|
-|[自定义指令demo](https://wscats.github.io/vue-demo/自定义指令.html)|
-|[滑动手势demo](https://wscats.github.io/vue-demo/滑动手势指令.html)|
+|[指令demo](https://wscats.github.io/vue-demo/指令.html)|[自定义指令demo](https://wscats.github.io/vue-demo/自定义指令.html)|[滑动手势demo](https://wscats.github.io/vue-demo/滑动手势指令.html)|
 
 
 ## 过滤器
 | Filter |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|
-|[过滤器实现分页demo](https://wscats.github.io/vue-demo/vue使用过滤器实现分页.html)|
-|[过滤器读写数据](https://wscats.github.io/vue-demo/vue过滤器读写数据.html)|
+|[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|[过滤器实现分页demo](https://wscats.github.io/vue-demo/vue使用过滤器实现分页.html)|[过滤器读写数据](https://wscats.github.io/vue-demo/vue过滤器读写数据.html)|
 
 ## 过渡
 | Transition |
