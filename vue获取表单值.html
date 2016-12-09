@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<!--取value值 对应的checkbox 必须是数组-->
+			<br>
+			<input checked type="checkbox" value="checkbox" v-model="name">
+			<input type="checkbox" value="checkbox1" v-model="name">
+			<input type="checkbox" value="checkbox2" v-model="name">
+			<input type="checkbox" v-model="name">{{name}}
+			
+			<br>
+			<input type="radio" v-model="radio" value="man">男
+			<input type="radio" v-model="radio" value="woman">女 {{radio}}
+			
+			<br>
+			<!--取selects的值就是我们对应的当前选中的值-->
+			<select v-model="selects">
+				<option v-for="l in lists" v-bind:value="l.name">{{l.name}}</option>
+			</select>{{selects}}
+			
+		</div>
+		<script src="vue.js"></script>
+		<script>
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					name: [],
+					radio: '',
+					selects: 'select2',
+					lists: [{
+						name: 'select1'
+					}, {
+						name: 'select2'
+					}, {
+						name: 'select3'
+					}]
+				}
+			})
+			vm.$watch('name', function(val) {
+				console.log(val)
+			})
+		</script>
+	</body>
+
+</html>

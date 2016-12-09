@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<!--{{capitalize | capitalize 5}}-->
+			<input type="text" v-model="capitalize | cap 5 'test'"> {{capitalize}}
+		</div>
+		<script src="vue.js"></script>
+		<script>
+			Vue.filter('cap', {
+				//读的时候的返回值
+				read: function(val, begin, end) {
+					console.log('begin:' + begin + ' end:' + end);
+					return val.slice(0, begin).toUpperCase();
+				},
+				//写的时候返回值
+				write: function(val) {
+					console.log(val);
+					//当我们input标签写入内容的时候 会默认调用write方法
+					return val + 100;
+				}
+			});
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					capitalize: 'abcdefghijq',
+				}
+			})
+		</script>
+	</body>
+
+</html>
