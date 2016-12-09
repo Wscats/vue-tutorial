@@ -26,12 +26,23 @@
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[过滤器demo](https://wscats.github.io/vue-demo/过滤器.html)|
 |[过滤器实现分页demo](https://wscats.github.io/vue-demo/vue使用过滤器实现分页.html)|
+|[过滤器读写数据](https://wscats.github.io/vue-demo/vue过滤器读写数据.html)|
 
 ## 过渡
 | Transition |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[过渡demo](https://wscats.github.io/vue-demo/过渡.html)|
 |[过渡demo2](https://wscats.github.io/vue-demo/过渡2.html)|
+
+## 表单
+| Form |
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[获取表单值](https://wscats.github.io/vue-demo/vue获取表单值.html)|
+
+## 计算
+| Computed |
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[计算属性](https://wscats.github.io/vue-demo/vue计算属性.html)|
 
 ## 组件
 | Component |
