@@ -53,4 +53,4 @@
 ## Vuex
 | Vuex |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[Vuex组件间的通信](https://wscats.github.io/vue-demo/vuex组件间的通信demo.html||
+|[Vuex组件间的通信](https://wscats.github.io/vue-demo/vuex组件间的通信demo.html)|
