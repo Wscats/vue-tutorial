@@ -49,3 +49,8 @@
 | Component |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[组件demo](https://wscats.github.io/vue-demo/组件.html)|
+
+## Vuex
+| Vuex |
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[Vuex组件间的通信](https://wscats.github.io/vue-demo/vuex组件间的通信demo.html|
