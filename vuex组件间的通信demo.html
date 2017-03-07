@@ -41,10 +41,19 @@
 			state: {
 				count: 'state开始'
 			},
+			//同步分发
 			mutations: {
 				setData: function(state, data) {
-					// 变更状态
 					state.count = data
+					// 变更状态
+				}
+			},
+			//异步
+			actions: {
+				setData: function(context) {
+					setTimeout(function() {
+						context.commit('setData', 'state异步分发')
+					}, 3000)
 				}
 			}
 		})
@@ -71,6 +80,7 @@
 				}
 			},
 			ready: function() {
+				this.$store.dispatch('setData')
 				console.log(this.count)
 			}
 		})
