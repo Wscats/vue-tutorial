@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<p>{{name}}</p>
+			<wsscat v-bind:msg="name"></wsscat>
+			<mine></mine>
+		</div>
+	</body>
+	<script src="https://wscats.github.io/vue-demo/vue.js"></script>
+	<script src="js/vuex.js"></script>
+	<script type="text/template" id="tpl">
+		<div style="border: 1px solid #007AFF;">
+			<p>第一个组件</p>
+			<div>Hello {{name}}</div>
+			<input v-model="name" @keyup="changeData()" />
+			<p>{{count}}</p>
+			<button @click="setData()">setData</button>
+			<div>{{msg}}</div>
+		</div>
+	</script>
+	<template id="mineTpl">
+		<div style="border: 1px solid #007AFF;">
+			<p>第二个组件</p>
+			<p>{{count}}</p>
+			<div>Hello {{name}}</div>
+			<div>{{msg}}</div>
+		</div>
+	</template>
+	<!--<template id＝"tpl">
+		<div>Hello {{name}}</div>
+	</template>-->
+	<script>
+		var store = new Vuex.Store({
+			state: {
+				count: 'state开始'
+			},
+			mutations: {
+				setData: function(state, data) {
+					// 变更状态
+					state.count = data
+				}
+			}
+		})
+
+		var wsscat = Vue.extend({
+			template: '#tpl',
+			props: ['msg'],
+			data: function() {
+				return {
+					name: 'Wsscat'
+				}
+			},
+			computed: {
+				count: function() {
+					return this.$store.state.count;
+				}
+			},
+			methods: {
+				setData: function() {
+					this.$store.commit('setData', 'state已经更改');
+				},
+				changeData: function() {
+					this.$store.commit('setData', this.name);
+				}
+			},
+			ready: function() {
+				console.log(this.count)
+			}
+		})
+
+		var me = Vue.extend({
+			template: '#mineTpl',
+			props: ['msg'],
+			computed: {
+				count: function() {
+					return this.$store.state.count;
+				}
+			},
+			data: function() {
+				return {
+					name: 'Wsscat'
+				}
+			}
+		})
+
+		Vue.component('mine', { //这里就是注册的内容
+			template: '#mineTpl'
+		});
+
+		// 注册
+		Vue.component('wsscat', wsscat)
+		Vue.component('mine', me)
+		new Vue({
+			el: '#demo',
+			store: store,
+			data: {
+				name: 'wsscats'
+			}
+		})
+	</script>
+
+</html>
