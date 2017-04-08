@@ -1,8 +1,4 @@
 # Vue
-## AppDemo
-| Demo | | |
-| --------- | --------- | --------- |
-|[NewsDemo](https://wscats.github.io/vue-demo/news/index.html)|[vue计算属性](https://wscats.github.io/vue-demo/vue计算属性.html)|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)|
 
 ## Vue文档
 | Article | |
@@ -12,6 +8,11 @@
 |[Vue指令](https://github.com/Wscats/vue-demo/issues/7)|[Vue api文档](https://github.com/Wscats/vue-demo/issues/6)|
 |[Vue执行ajax请求](https://github.com/Wscats/vue-demo/issues/5)|[vue实现类似angular服务的方法](https://github.com/Wscats/vue-demo/issues/4)|
 |[Vue源码参考文档](https://github.com/Wscats/vue-demo/issues/10)||
+
+## AppDemo
+| Demo | | |
+| --------- | --------- | --------- |
+|[NewsDemo](https://wscats.github.io/vue-demo/news/index.html)|[vue计算属性](https://wscats.github.io/vue-demo/vue计算属性.html)|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)|
 
 ## 路由
 | Controller | |
