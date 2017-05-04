@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="turing">
+			<p>由于github是的https协议,图灵机器人接口是http协议,可以右键赋值源码到本地测试</p>
+			<input v-model="ask" @keyup="ajax" />
+			<p>{{text}}</p>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#turing',
+			data: {
+				ask: "", //用户提的问题
+				text: ""
+			},
+			methods: {
+				ajax: function() {
+					console.log(this.ask);
+					var self = this;
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.open("GET", "http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf&info=" + self.ask, true);
+					xmlhttp.send();
+					xmlhttp.onreadystatechange = function() {
+						if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							console.log(this)
+							self.text = JSON.parse(xmlhttp.responseText).text
+						}
+					}
+				}
+			}
+		})
+	</script>
+</html>
