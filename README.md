@@ -47,9 +47,9 @@
 |[计算属性](https://wscats.github.io/vue-demo/vue计算属性.html)|
 
 ## 组件
-| Component |
-| --------- |
-|[组件demo](https://wscats.github.io/vue-demo/组件.html)|
+| Component ||
+| --------- | --------- |
+|[组件demo](https://wscats.github.io/vue-demo/组件.html)|[点击预览大图](https://wscats.github.io/vue-demo/预览图片.html)|
 
 ## Vuex
 | Vuex |
