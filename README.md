@@ -10,7 +10,7 @@
 |[Vue源码参考文档](https://github.com/Wscats/vue-demo/issues/10)||
 
 ## AppDemo
-| Demo | | |
+| Demo | |
 | --------- | --------- |
 |[新闻列表DEMO(1)](https://wscats.github.io/vue-demo/新闻列表.html)|[新闻列表DEMO(2)](https://wscats.github.io/vue-demo/news/index.html)|
 |[图灵机器人](https://wscats.github.io/vue-demo/图灵机器人.html)|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)|
