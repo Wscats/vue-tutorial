@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<input v-model="search" />
+			<p v-html="html|highlight search"></p>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		Vue.filter("highlight", function(input, value) {
+			if(value) {
+				var arr = input.split(value);
+				var output = arr.join("<span style='color:red'>" + value + "</span>");
+				return output;
+			} else {
+				return input;
+			}
+		})
+		new Vue({
+			el: "#demo",
+			data: {
+				search: "经典",
+				html: '这几天面试上几次碰上这道经典的<a href="https://github.com/Wscats/Good-text-Share/issues/85">题目</a>，特地从头到尾来分析一次答案，这道题的经典之处在于它综合考察了面试者的JavaScript的综合能力，包含了变量定义提升、this指针指向、运算符优先级、原型、继承、全局变量污染、对象属性及原型属性优先级等知识，此题在网上也有部分相关的解释，当然我觉得有部分解释还欠妥，不够清晰，特地重头到尾来分析一次，当然我们会把最终答案放在后面，并把此题再改高一点点难度，改进版也放在最后，方便面试官在出题的时候有个参考，更多详情可关注本文作者<a href="https://github.com/Wscats">@Wscats</a>'
+			}
+		})
+	</script>
+</html>
