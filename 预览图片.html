@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/weui.css" />
+	<style>
+		body{
+			background-color: #dadada
+		}
+		.xarticle{
+			background-color: white;
+			margin: 0 auto;
+			max-width: 568px;
+		}
+	</style>
+	<body id="demo">
+		<div class="xarticle">
+			<xarticle></xarticle>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script src="js/jquery.js"></script>
+	<script>
+		var xarticle = Vue.extend({
+			template: `
+				<article class="weui-article" v-for="news in newss">
+				    <section>
+				        <h2 class="title">{{news.title}}</h2>
+				        <section>
+				            <p>
+				                {{news.description}}
+				            </p>
+				            <p>
+				                <img @click="showGallery(news.picUrl)" :src="news.picUrl" alt="{{$index}}">
+				            </p>
+				        </section>
+				    </section>
+				</article>
+				<div class="weui-gallery" :style="{display:isShowGallery?'block':'none'}">
+				    <span class="weui-gallery__img" :style="{backgroundImage: 'url('+picUrl+')'  }"></span>
+				    <div class="weui-gallery__opr">
+				        <a href="javascript:" class="weui-gallery__del" @click="isShowGallery=!isShowGallery">
+				            <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+				        </a>
+				    </div>
+				</div>
+			`,
+			data:function(){
+				return {
+					newss:[],
+					isShowGallery:false,
+					picUrl:"",
+				}
+			},
+			methods:{
+				showGallery:function(url){
+					this.isShowGallery = true
+					console.log(url)
+					this.picUrl = url
+				}
+			},
+			ready:function(){
+				$.ajax({
+					type:"GET",
+					url:"json/meizi.json",
+					data:{
+						page:1
+					},
+					dataType:"json",
+					success:function(data){
+						console.log(data)
+						this.newss = data.showapi_res_body.newslist;
+						
+					}.bind(this)
+				})
+			}
+		})
+		new Vue({
+			el: "#demo",
+			data: {
+
+			},
+			components: {
+				xarticle: xarticle
+			},
+		})
+	</script>
+
+</html>
