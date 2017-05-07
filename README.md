@@ -16,9 +16,9 @@
 |[图灵机器人](https://wscats.github.io/vue-demo/图灵机器人.html)|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)|
 
 ## 路由
-| Controller | |
-| --------- | --------- |
-|[路由demo](https://wscats.github.io/vue-demo/路由.html)|[路由demo2](https://wscats.github.io/vue-demo/路由2.html)|
+| Controller | | |
+| --------- | --------- | --------- |
+|[路由(v1)demo](https://wscats.github.io/vue-demo/路由.html)|[路由(v1)demo2](https://wscats.github.io/vue-demo/路由2.html)|[路由(v2)实例demo](https://wscats.github.io/vue-demo/vue-router2/news.html)|
 
 
 ## 指令
