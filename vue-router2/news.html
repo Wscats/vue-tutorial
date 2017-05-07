@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/weui.css" />
+	<link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/swiper.css" />
+	<body style="">
+		<div id="demo">
+			<div id="container">
+				<router-view></router-view>
+			</div>
+		</div>
+	</body>
+	<script src="js/vue2.0.js"></script>
+	<script src="js/vue-router.js"></script>
+	<script src="js/vue-resource.js"></script>
+	<script src="js/vuex.js"></script>
+	<script src="components/xheader.js"></script>
+	<script src="components/xsearch.js"></script>
+	<script src="components/xswiper.js"></script>
+	<script src="components/xlist.js"></script>
+	<script src="components/xdetail.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/swiper.js"></script>
+	<script src="store/store.js"></script>
+	<script>
+		//这个是首页所有组件的容器，本身也是一个组件
+		var firstCp = Vue.extend({
+			template: `
+				<div>
+					<xheader></xheader>
+					<xsearch></xsearch>
+					<xswiper></xswiper>
+					<xlist></xlist>
+					<router-view></router-view>
+				</div>
+			`
+		})
+		var detailCp = Vue.extend({
+			template: `
+				<div>
+					<xheader></xheader>
+					<xdetail></xdetail>
+				</div>
+			`
+		})
+		var router = new VueRouter({
+			routes: [{
+				path: "/index",
+				component: firstCp,
+				//路由嵌套
+				children: [{
+					path: "a",
+					component: {
+						template: "<p>第一个子组件</p>"
+					}
+				}, {
+					path: "b",
+					component: {
+						template: "<p>第二个子组件</p>"
+					}
+				}]
+			}, {
+				path: "/detail/:id",
+				component: detailCp
+			}, {
+				path: "/",
+				redirect: "/index"
+			}]
+		});
+	</script>
+	<script src="global/global.js"></script>
+
+</html>
