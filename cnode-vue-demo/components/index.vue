@@ -1,10 +1,10 @@
 <template>
 <div>
-    <mu-appbar title="Title" id="cnode_top" style="height:50px;background-color: rgba(153,102,255,0.9);">
+    <mu-appbar title="Title" id="cnode_top" style="max-width:480px;height:50px;background-color: rgba(153,102,255,0.9);">
         
         <!--左边菜单-->
-        <span class="myMenu" @click="changeMenu()" style="position:fixed;left:10px;top:14px;"></span>
-        <mu-drawer :open="open" :docked="docked" @close="changeMenu()">
+        <span class="myMenu" @click="changeMenu()" style="position:absolute;left:10px;top:14px;"></span>
+        <mu-drawer style="height: 418px;position: absolute;" :open="open" :docked="docked" @close="changeMenu()">
         <mu-list @itemClick="docked ? '' : changeMenu()" style="padding-top:0px">
             <p style="background:rgba(153, 102, 255, 0.9);height:50px;color:white;text-align:center;line-height:50px">
                 <span style="font-size: 30px;position: fixed;left: 0px;width:50px" @click="open = false">&times;</span>
@@ -19,9 +19,9 @@
             <div style="font-size:16px;padding-left:16px;border-bottom: 1px solid #ddd;margin-top:10px">省流量
                 <mu-switch v-model="toggle" @input="economy()"  class="demo-switch" style="margin-left:120px"/>
             </div>
-            <mu-list-item title="关于作者" style="border-bottom: 1px solid #ddd" href="https://github.com/stjw7098"/>
-            <mu-list-item title="关于CNode社区" style="border-bottom: 1px solid #ddd" href="https://cnodejs.org/"/>
-            <mu-list-item title="当前版本  1.0"/>
+            <!--<mu-list-item title="关于作者" style="border-bottom: 1px solid #ddd" href="https://github.com/stjw7098"/>-->
+            <!--<mu-list-item title="关于CNode社区" style="border-bottom: 1px solid #ddd" href="https://cnodejs.org/"/>-->
+            <!--<mu-list-item title="当前版本  1.0"/>-->
             <!--<mu-list-item v-if="docked" @click.native="open = false" title="关闭"/>-->
         </mu-list>
         </mu-drawer>
