@@ -1,0 +1,228 @@
+.markdown-body img {
+    display: block;
+    margin: 10px auto;
+    border: none;
+    border-radius: 10px;
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+.markdown-body *,
+.markdown-text * {
+    box-sizing: border-box;
+    font-family: arial, verdana, microsoft yahei;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6,
+.markdown-text h1,
+.markdown-text h2,
+.markdown-text h3,
+.markdown-text h4,
+.markdown-text h5,
+.markdown-text h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.markdown-body h1,
+.markdown-text h1 {
+    font-size: 20px;
+}
+
+.markdown-body h2,
+.markdown-text h2 {
+    font-size: 18px;
+}
+
+.markdown-body h3,
+.markdown-text h3 {
+    font-size: 16px;
+}
+
+.markdown-body blockquote>:first-child,
+.markdown-text blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child,
+.markdown-text blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body blockquote,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul,
+.markdown-text blockquote,
+.markdown-text dl,
+.markdown-text ol,
+.markdown-text p,
+.markdown-text pre,
+.markdown-text table,
+.markdown-text ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+a,
+abbr,
+address,
+b,
+blockquote,
+cit,
+code,
+dd,
+del,
+dfn,
+dl,
+dt,
+em,
+fieldset,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+i,
+ins,
+label,
+legend,
+li,
+ol,
+p,
+pre,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+ul {
+    border: 0;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.markdown-body a,
+.markdown-text a {
+    font-size: 14px;
+    color: #4078c0;
+    background-color: transparent;
+    text-decoration: none;
+    outline: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.markdown-body ol li:before,
+.markdown-body ul li:before,
+.markdown-text ol li:before,
+.markdown-text ul li:before {
+    content: "\25CB";
+    font-weight: 700;
+    color: #aaa;
+    float: left;
+    margin-left: -13px;
+}
+
+.markdown-body blockquote,
+.markdown-text blockquote {
+    margin: 0;
+    padding: 0 10px;
+    color: #777;
+    border-left: 4px solid #ddd;
+}
+
+
+/*a {
+    font-weight: bold;
+}*/
+
+.markdown-body pre,
+.markdown-text pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, Liberation Mono, Menlo, Courier, monospace;
+    padding: 10px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #333!important;
+    border-radius: 10px;
+    color: #999;
+    border: 1px solid #666;
+    word-wrap: normal;
+}
+
+.markdown-body pre code,
+.markdown-text pre code {
+    font-size: 12px;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    display: inline;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+    color: #f8f8f2;
+}
+
+.markdown-body code,
+.markdown-text code {
+    font-family: Consolas, Liberation Mono, Menlo, Courier, monospace;
+    border-radius: 3px;
+}
+
+.markdown-text img {
+    width: 100%;
+}
+
+.hljs-addition,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-attr,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-string,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable {
+    color: #e6db74;
+}
+
+.hljs,
+.hljs-subst,
+.hljs-tag {
+    color: #f8f8f2;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+    color: #75715e;
+}
