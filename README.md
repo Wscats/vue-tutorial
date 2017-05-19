@@ -14,7 +14,11 @@
 | --------- | --------- |
 |[新闻列表DEMO(1)](https://wscats.github.io/vue-demo/新闻列表.html)|[新闻列表DEMO(2)](https://wscats.github.io/vue-demo/news/index.html)|
 |[CNode社区DEMO](https://wscats.github.io/vue-demo/cnode-vue-demo/public/)|[图灵机器人](https://wscats.github.io/vue-demo/图灵机器人.html)|
-|[vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)||
+
+## 生命周期
+| Demo | |
+| --------- | --------- |
+|[Vue生命周期](https://wscats.github.io/vue-demo/vue生命周期.html)|[Vue的$nextTick](https://wscats.github.io/vue-demo/vue中的$nextTick.html)|
 
 ## 路由
 | Controller | | |
