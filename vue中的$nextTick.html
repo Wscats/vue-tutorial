@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app" class="app"></div>
+	</body>
+	<script src="js/vue2.js"></script>
+	<script src="js/jquery.js"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				text: "列表异步生成，获取生成后的li标签(详情请打开控制台查看)",
+				items: []
+			},
+			template: `
+				<div>
+					<p>{{text}}</p>
+					<ul>
+						<li v-for="(item, index) in items">
+							{{ item.name }}
+						</li>
+					</ul>
+					<button @click="loadMore">加载更多</button>
+					<p>
+						this.$nextTick是在下次DOM更新循环结束时调用延迟回调函数,只执行一次,在updated之后,执行一次。
+					</p>
+					<p>
+						因为li列表是异步生成的，在mounted和ajax之前是无法获取的，所以要借助$nextTick在DOM更新时候再出发回调获取，或者用updated获取
+					</p>
+				</div>
+			`,
+			methods: {
+				loadMore: function() {
+					this.items.push({
+						name: "Winds"
+					})
+				}
+			},
+			beforeCreate: function() {
+			},
+			created: function() {
+			},
+			mounted: function() {
+				console.log("mounted之前", $("li"));
+				console.log("ajax之前", $("li"));
+				$.ajax({
+					url: "./json/author.json",
+					dataType: "json",
+					success: function(data) {
+						this.items = data.items;
+						console.log("ajax之后,没$nextTick的情况", $("li"));
+						this.$nextTick(function() {
+							console.log("ajax之后,有$nextTick的情况", $("li"));
+						})
+					}.bind(this)
+				})
+			},
+			beforeUpdate: function() {
+				console.log("ajax之后,且updated前", $("li"));
+			},
+			updated: function() {
+				console.log("ajax之后,且updated后", $("li"));
+			}
+		})
+	</script>
+
+</html>
