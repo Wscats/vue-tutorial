@@ -385,7 +385,7 @@ new Vue({
 ```
 获取vuex中的state的值
 利用`this.$store.state.searchName`获取值
-```
+```javascript
 computed: {
 		searchName: function() {
 			//vuex的state里面拿数据
@@ -402,6 +402,6 @@ computed: {
 ```
 设置vuex中的state的值
 commit的第一个参数是触发vuex中的mutations的函数，让它帮我们修改对应的值
-```
+```javascript
 this.$store.commit('changesearchName',this.searchName)
 ```
