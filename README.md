@@ -105,6 +105,7 @@ Vue比Angular轻,Vue的源码比较小
 指令，以属性值呈现在便签上，实现某类方法的复用
 
 下面是Vue和Angular指令的简单对比，发现Vue总是简洁点
+
 |Angular指令|Vue指令|Vue指令|
 |-|-|-|
 |ng-show|v-show||
@@ -340,7 +341,7 @@ components: {
 }
 ```
 
-## vuex
+## Vuex
 安装vuex
 ```
 cnpm install vuex
