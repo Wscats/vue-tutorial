@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	</head>
+	<style type="text/css">
+		body,
+		html,
+		#demo,
+		#allmap {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			margin: 0;
+			font-family: "微软雅黑";
+		}
+	</style>
+	<body>
+		<div id="demo">
+			<div id="allmap"></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GgBzQDEo8aW1VxmGRF73toYvt1aDtMVw"></script>
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: "#demo",
+			ready: function() {
+				// 百度地图API功能
+				var map = new BMap.Map("allmap");
+				map.centerAndZoom("重庆", 12); //初始化地图,设置城市和地图级别。
+				var pointA = new BMap.Point(106.486654, 29.490295); // 创建点坐标A--大渡口区
+				var pointB = new BMap.Point(106.581515, 29.615467); // 创建点坐标B--江北区
+				alert('从大渡口区到江北区的距离是：' + (map.getDistance(pointA, pointB)).toFixed(2) + ' 米。'); //获取两点距离,保留小数点后两位
+				var polyline = new BMap.Polyline([pointA, pointB], {
+					strokeColor: "blue",
+					strokeWeight: 6,
+					strokeOpacity: 0.5
+				}); //定义折线
+				map.addOverlay(polyline); //添加折线到地图上
+			}
+		})
+	</script>
+
+</html>
