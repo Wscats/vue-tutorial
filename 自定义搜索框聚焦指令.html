@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/weui.css" />
+
+	<body>
+		<div id="demo">
+			<div class="weui-search-bar" :class="{'weui-search-bar_focusing':!isSearch}" id="search_bar">
+				<form class="weui-search-bar__form">
+					<div class="weui-search-bar__box">
+						<i class="weui-icon-search"></i>
+						<input id="search" v-model="search" type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" />
+						<!--把函数和参数值以对象的形式传进去-->
+						<a v-focuss:wscats="{fn:clear,params:arg}" href="javascript:" class="weui-icon-clear" id="search_clear"></a>
+					</div>
+					<label @click="isSearch=false" for="search_input" class="weui-search-bar__label" id="search_text">
+            <i class="weui-icon-search"></i>
+            <span>搜索</span>
+        </label>
+				</form>
+				<a href="javascript:" @click="isSearch=true" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
+			</div>
+		</div>
+	</body>
+	<script src="js/vue2.js"></script>
+	<script>
+		//操作DOM结构的方法
+		Vue.directive("focuss", {
+			bind: function(el, binding, vnode) {
+				console.log("绑定时");
+				el.addEventListener("click", function() {
+					//获取传入v-focuss:wscats来的wscats值
+					console.log(binding.arg);
+					//传入指令的值
+					console.log(binding.value.params);
+					//执行传给指令的clear函数
+					binding.value.fn();
+					//让输入框聚焦
+					document.getElementById("search").focus();
+				})
+			},
+			inserted: function(el) {
+				console.log("插入页面时");
+			},
+			update: function(el, binding, vnode) {
+				console.log("页面更新时")
+			},
+			componentUpdated: function(el) {
+				console.log("组件更新时");
+			},
+			unbind: function(el) {
+				console.log("解绑时");
+			}
+		})
+		new Vue({
+			el: "#demo",
+			data: {
+				search: "",
+				isSearch: "false",
+				arg: "wscats"
+			},
+			methods: {
+				//封装清空输入框的方法
+				clear: function() {
+					this.search = "";
+				}
+			}
+		})
+	</script>
+
+</html>
