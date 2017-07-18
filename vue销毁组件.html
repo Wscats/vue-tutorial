@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<xheader v-if="isDestroyCp"></xheader>
+			<p>{{name}}</p>
+			<button @click="destroyCp()">增删组件</button>
+		</div>
+	</body>
+	<script src="js/vue2.js"></script>
+	<script>
+		Vue.component("xheader", {
+				template: "<header>头部</header>",
+				beforeDestroy: function() {
+					console.log("销毁前")
+				},
+				destroyed: function() {
+					console.log("销毁后")
+				},
+			})
+			//构造器
+		new Vue({
+			//element节点 querySelector
+			el: "#demo",
+			//需要绑定的数据 $scope
+			data: {
+				name: "使用v-if或者v-for指令以数据驱动的方式控制子组件的生命周期",
+				isDestroyCp: true
+			},
+			methods: {
+				destroyCp: function() {
+					this.isDestroyCp = !this.isDestroyCp
+				}
+			}
+		})
+	</script>
+
+</html>
