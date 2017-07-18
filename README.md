@@ -14,7 +14,7 @@
 | Demo | |
 | --------- | --------- |
 |[新闻列表DEMO(1)](https://wscats.github.io/vue-tutorial/新闻列表.html)|[新闻列表DEMO(2)](https://wscats.github.io/vue-tutorial/news/index.html)|
-|[CNode社区DEMO](https://wscats.github.io/vue-tutorial/cnode-vue-tutorial/public/)|[图灵机器人](https://wscats.github.io/vue-tutorial/图灵机器人.html)|
+|[CNode社区DEMO](https://wscats.github.io/vue-tutorial/cnode-vue-demo/public/)|[图灵机器人](https://wscats.github.io/vue-tutorial/图灵机器人.html)|
 
 ## 生命周期
 | Demo | |
