@@ -20,6 +20,7 @@
 | Demo | |
 | --------- | --------- |
 |[Vue生命周期](https://wscats.github.io/vue-tutorial/vue生命周期.html)|[Vue的$nextTick](https://wscats.github.io/vue-tutorial/vue中的$nextTick.html)|
+|[Vue触发组件销毁](https://wscats.github.io/vue-tutorial/vue销毁组件.html)||
 
 ## 路由
 | Controller | | |
