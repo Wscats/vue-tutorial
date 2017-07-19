@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/vue2.js"></script>
+
+	<body>
+		<div id="demo">
+			<header v-scroll-top>头部</header>
+			<ul>
+				<li v-for="n in news">{{n}}</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el: "#demo",
+			data: {
+				news: ['Wscats', 'Oaoafly'],
+			},
+			mounted() {
+				for(var i = 0; i <= 100; i++) {
+					this.news.push("Wscats" + i)
+				}
+			},
+			directives: {
+				scrollTop: {
+					bind(el) {
+						el.addEventListener("click", function() {
+							console.log("a")
+							var timer = setInterval(() => {
+								document.body.scrollTop = document.body.scrollTop - 30
+								if(document.body.scrollTop == 0) {
+									clearInterval(timer)
+								}
+							}, 1)
+						})
+					}
+				}
+			}
+		})
+	</script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 50px;
+			width: 100%;
+			line-height: 50px;
+			text-align: center;
+			z-index: 99;
+			background-color: #F0B37E;
+			color: white;
+		}
+		
+		ul {
+			position: absolute;
+			top: 50px;
+		}
+	</style>
+
+</html>
