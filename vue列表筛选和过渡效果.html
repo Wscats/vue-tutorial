@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo"></div>
+	</body>
+	<link rel="stylesheet" href="./css/animate.css">
+	<style>
+		.fold-enter-active {
+			/*引用animate.css的bounce动画*/
+			animation-name: bounce;
+			animation-duration: .5s;
+		}
+		
+		.fold-leave-active {
+			animation-name: bounce;
+			animation-duration: .5s;
+		}
+		
+		.position {
+			/*position: absolute;*/
+			/*这里要给高度不然元素消失会挤掉空间*/
+			height: 90px;
+		}
+		
+	</style>
+	<script src="./js/vue2.js"></script>
+	<script src="./js/lodash.js"></script>
+	<script>
+		new Vue({
+			el: "#demo",
+			template: `
+				<div>
+					<input v-model="search" />
+					<select v-model="key">
+						<option value="user">user</option>
+						<option value="age">age</option>
+					</select>
+					<transition-group name="fold" tag="ul" class="position">
+						<li v-for="arr in arrss" :key="arr">name:{{arr.user}}  age:{{arr.age}}</li>
+					</transition-group>
+					<p>列表动画必须用transition-group组件,并且tag属性对应是ul,select或者table等这类列表父属性值</p>
+					配合<a href="https://daneden.github.io/animate.css/">animate</a>样式库
+				</div>
+			`,
+			data: {
+				search: "",
+				bool: true,
+				//默认进行名字筛选
+				key: "user",
+				arrs: [{
+					'user': 'wscats',
+					'age': 18,
+				}, {
+					'user': 'oaoafly',
+					'age': 16,
+				}, {
+					'user': 'windiest',
+					'age': 14,
+				}, {
+					'user': 'wsest',
+					'age': 99,
+				}]
+			},
+			computed: {
+				arrss() {
+					var output;
+					if(this.search) {
+						//可以传对象或者根据匿名函数的条件进行筛选结果
+						output = _.filter(this.arrs, (item) => {
+							//遍历每项字符串
+							if(_.isString(item[this.key])) {
+								return item[this.key].indexOf(this.search) != -1;
+							} else {
+								//数字强制转换为字符串
+								return(item[this.key] + "").indexOf(this.search) != -1;
+							}
+						})
+					} else {
+						output = this.arrs
+					}
+					return output;
+				},
+			}
+		})
+	</script>
+
+</html>
