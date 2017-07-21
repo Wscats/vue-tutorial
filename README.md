@@ -54,8 +54,8 @@
 |[获取表单值](https://wscats.github.io/vue-tutorial/vue获取表单值.html)|
 
 ## 计算
-| Computed |
-| --------- |
+| Computed ||
+| --------- | --------- |
 |[计算属性](https://wscats.github.io/vue-tutorial/vue计算属性.html)|[列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)|
 
 ## 组件
