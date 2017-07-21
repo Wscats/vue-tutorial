@@ -41,13 +41,13 @@
 | --------- | --------- |
 |[过滤器demo](https://wscats.github.io/vue-tutorial/过滤器.html)|[过滤器实现分页demo](https://wscats.github.io/vue-tutorial/vue使用过滤器实现分页.html)|
 |[过滤器读写数据](https://wscats.github.io/vue-tutorial/vue过滤器读写数据.html)|[自定义搜索关键词高亮](https://wscats.github.io/vue-tutorial/自定义搜索关键词高亮.html)|
-|[vue列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)||
+|[列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)||
 
 ## 过渡
 | Transition | |
 | --------- | --------- |
 |[过渡demo](https://wscats.github.io/vue-tutorial/过渡.html)|[过渡demo2](https://wscats.github.io/vue-tutorial/过渡2.html)|
-|[vue列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)||
+|[列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)||
 
 ## 表单
 | Form |
