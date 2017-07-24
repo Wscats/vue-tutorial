@@ -8,15 +8,20 @@
 
 	<body>
 		<div id="wscats">
+			<p>通过this.$refs来获取节点</p>
 			<p>{{eman}}</p>
 			<cp ref="cp"></cp>
+			<div ref="dom">{{a}}</div>
+			<p>
+				执行的顺序是：beforeChange>更新dom>afterChange
+			</p>
 		</div>
 	</body>
 	<script>
 		var cp = {
 			data() {
 				return {
-					name: "这是一个子组件"
+					name: "这是一个子组件",
 				}
 			},
 			template: `
@@ -29,10 +34,23 @@
 		new Vue({
 			el: "#wscats",
 			data: {
-				eman: ""
+				eman: "",
+				a:1
 			},
 			mounted() {
 				console.log(this.$refs.cp.name)
+				
+				//要在$nextTick后面获取this.$refs的节点
+				console.log('start');
+				this.$nextTick(function() {
+					console.log('beforeChange', this.$refs.dom.textContent)
+				})
+				this.a = 2;
+				console.log('change');
+				this.$nextTick(function() {
+					console.log('afterChange', this.$refs.dom.textContent)
+				})
+				console.log('end');
 			},
 			components: {
 				cp
