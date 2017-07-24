@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<script src="js/vue2.js"></script>
+	</head>
+
+	<body>
+		<div id="wscats">
+			<p>{{eman}}</p>
+			<cp ref="cp"></cp>
+		</div>
+	</body>
+	<script>
+		var cp = {
+			data() {
+				return {
+					name: "这是一个子组件"
+				}
+			},
+			template: `
+				<div>
+					<input v-model="name" />
+					<p>{{name}}</p>
+				</div>
+			`
+		}
+		new Vue({
+			el: "#wscats",
+			data: {
+				eman: ""
+			},
+			mounted() {
+				console.log(this.$refs.cp.name)
+			},
+			components: {
+				cp
+			}
+		})
+	</script>
+
+</html>
