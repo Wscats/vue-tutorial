@@ -72,7 +72,7 @@
 ## 其他
 | Other |
 | --------- |
-|[调用百度地图接口实现查询路线直线距离](https://wscats.github.io/vue-tutorial/vue调用百度地图接口实现查询路线直线距离.html)|
+|[调用百度地图接口实现查询路线直线距离](https://wscats.github.io/vue-tutorial/vue调用百度地图接口实现查询路线直线距离.html)|[配合Echarts图表](https://wscats.github.io/vue-tutorial/vue和echarts.html)|
 
 ## 安装
 
