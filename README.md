@@ -70,8 +70,8 @@
 |[Vuex组件间的通信](https://wscats.github.io/vue-tutorial/vuex组件间的通信demo.html)|
 
 ## 其他
-| Other |
-| --------- |
+| Other ||
+| --------- | --------- |
 |[调用百度地图接口实现查询路线直线距离](https://wscats.github.io/vue-tutorial/vue调用百度地图接口实现查询路线直线距离.html)|[配合Echarts图表](https://wscats.github.io/vue-tutorial/vue和echarts.html)|
 
 ## 安装
