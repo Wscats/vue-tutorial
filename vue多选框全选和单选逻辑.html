@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<p>全选</p>
+			<input type="checkbox" v-model="isClear" />
+			<p>多选</p>
+			<input type="checkbox" :value="list.name" v-model="name" v-for="list in lists">
+			<p>{{isClear}}</p>
+			<p>{{name}}</p>
+		</div>
+		<script src="vue2.js"></script>
+		<script>
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					isClear: false,
+					name: [],
+					lists: [{
+						name: 'a'
+					}, {
+						name: 'b'
+					}, {
+						name: 'c'
+					}, {
+						name: 'd'
+					}]
+				},
+				watch: {
+					isClear: function(val) {
+						if(this.isClear) {
+							this.name = []
+							var i = 0;
+							for(; i < this.lists.length; i++) {
+								this.name.push(this.lists[i].name)
+							}
+							this.isClear = true
+						} else {
+							//这一步很关键，要判断全选是否在全选和全不选时候的切换，如果是则清空
+							//如果不是则是多选下的一个或多个不选
+							if(this.name.length == this.lists.length) {
+								this.name = [];
+							} else {
+								this.name = this.name;
+							}
+							this.isClear = false
+						}
+					}
+				}
+			})
+
+			vm.$watch('name', function(val) {
+				if(this.name.length == 0) {
+					this.isClear = false
+				} else if(this.name.length == this.lists.length) {
+					this.isClear = true
+				} else {
+					this.isClear = false
+				}
+			})
+		</script>
+	</body>
+
+</html>
