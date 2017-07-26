@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<ul>
+				<li v-for="n in news" :key="n.id"><img :src="n.src" v-src="n.src" />{{n.src}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/vue2.js"></script>
+	<script>
+		new Vue({
+			el: "#demo",
+			data: {
+				news: [{
+					id: 2,
+					src: "2.jpg",
+				}, {
+					id: 1,
+					src: "1.jpg",
+				}, {
+					id: 3,
+					src: "3.jpg",
+				}]
+			},
+			directives: {
+				src: function(el, binding) {
+					el.setAttribute("src", "http://" + binding.value)
+				}
+			}
+		})
+	</script>
+</html>
