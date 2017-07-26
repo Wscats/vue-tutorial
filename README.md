@@ -50,9 +50,9 @@
 |[列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)||
 
 ## 表单
-| Form |
-| --------- |
-|[获取表单值](https://wscats.github.io/vue-tutorial/vue获取表单值.html)|
+| Form ||
+| --------- | --------- |
+|[获取表单值](https://wscats.github.io/vue-tutorial/vue获取表单值.html)|[多选框全选和单选逻辑](https://wscats.github.io/vue-tutorial/vue多选框全选和单选逻辑.html)|
 
 ## 计算
 | Computed ||
