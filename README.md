@@ -34,7 +34,7 @@
 |[指令demo](https://wscats.github.io/vue-tutorial/指令.html)|[自定义指令demo](https://wscats.github.io/vue-tutorial/自定义指令.html)|
 |[滑动手势demo](https://wscats.github.io/vue-tutorial/滑动手势指令.html)|[搜索框聚焦指令](https://wscats.github.io/vue-tutorial/自定义搜索框聚焦指令.html)|
 |[置顶指令](https://wscats.github.io/vue-tutorial/vue自定义置顶指令.html)|[下拉刷新](https://wscats.github.io/vue-tutorial/下拉刷新.html)|
-|[ref获取节点](https://wscats.github.io/vue-tutorial/vue的ref.html)||
+|[ref获取节点](https://wscats.github.io/vue-tutorial/vue的ref.html)|[指令实现属性过滤](https://wscats.github.io/指令实现属性过滤.html)|
 
 
 ## 过滤器
