@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>vue多选框全选和单选逻辑.</title>
+		<title>Title</title>
 	</head>
 
 	<body>
@@ -11,9 +11,24 @@
 			<p>全选</p>
 			<input type="checkbox" v-model="isClear" />
 			<p>多选</p>
-			<input type="checkbox" :value="list.name" v-model="name" v-for="list in lists">
+			<ul>
+				<li v-for="(list,index) in lists">
+					<p>
+						<input type="checkbox" :value="list" v-model="name">
+						<span>{{list.price}}</span>
+					</p>
+					<p>
+						<button @click="add(index)">+</button>
+						<button @click="reduce(index)">-</button> 数量
+						<span>{{list.number}}</span>
+					</p>
+				</li>
+			</ul>
 			<p>{{isClear}}</p>
+			<p>已选列表</p>
 			<p>{{name}}</p>
+			<p>总额</p>
+			<p>{{sum}}</p>
 		</div>
 		<script src="js/vue2.js"></script>
 		<script>
@@ -23,14 +38,47 @@
 					isClear: false,
 					name: [],
 					lists: [{
-						name: 'a'
+						name: 'a',
+						price: 20,
+						number: 1,
 					}, {
-						name: 'b'
+						name: 'b',
+						price: 50,
+						number: 1,
 					}, {
-						name: 'c'
+						name: 'c',
+						price: 10,
+						number: 1,
 					}, {
-						name: 'd'
+						name: 'd',
+						price: 30,
+						number: 1,
 					}]
+				},
+				methods: {
+					//往列表增加number
+					add: function(index) {
+						this.lists[index].number++;
+						console.log(this.lists);
+					},
+					reduce: function(index) {
+						//数量为0时候不能再减
+						if(this.lists[index].number != 0) {
+							this.lists[index].number--
+						}
+					}
+				},
+				computed: {
+					sum: function() {
+						if(this.name) {
+							var i = 0;
+							var sum = 0;
+							for(; i < this.name.length; i++) {
+								sum += (this.name[i]["price"] * this.name[i]["number"])
+							}
+							return sum
+						}
+					}
 				},
 				watch: {
 					isClear: function(val) {
@@ -38,7 +86,7 @@
 							this.name = []
 							var i = 0;
 							for(; i < this.lists.length; i++) {
-								this.name.push(this.lists[i].name)
+								this.name.push(this.lists[i])
 							}
 							this.isClear = true
 						} else {
