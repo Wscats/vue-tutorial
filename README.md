@@ -52,7 +52,7 @@
 ## 表单
 | Form ||
 | --------- | --------- |
-|[获取表单值](https://wscats.github.io/vue-tutorial/vue获取表单值.html)|[多选框全选和单选逻辑](https://wscats.github.io/vue-tutorial/vue多选框全选和单选逻辑.html)|
+|[获取表单值](https://wscats.github.io/vue-tutorial/vue获取表单值.html)|[购物车逻辑](https://wscats.github.io/vue-tutorial/vue多选框全选和单选逻辑.html)|
 
 ## 计算
 | Computed ||
