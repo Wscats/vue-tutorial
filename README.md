@@ -60,7 +60,7 @@
 | Computed ||
 | --------- | --------- |
 |[计算属性](https://wscats.github.io/vue-tutorial/vue计算属性.html)|[列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)|
-|[旋转图形的登录验证](https://wscats.github.io/vue-tutorial/vue图形登录验证.html)||
+|[旋转图形的登录验证](https://wscats.github.io/vue-tutorial/vue图形登录验证.html)|[收藏功能](https://wscats.github.io/vue-tutorial/vue计算属性实现收藏.html)|
 
 ## 组件
 | Component ||
