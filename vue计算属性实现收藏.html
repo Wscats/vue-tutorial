@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+
+	<body>
+		<div id="demo">
+			<ul>
+				<li v-for="n in news" :class="{'red':n.sc}">
+					{{n.title}}
+					<input type="checkbox" v-model="n.sc" />
+				</li>
+			</ul>
+			<p>{{news}}</p>
+			<p v-show="false">{{newss}}</p>
+		</div>
+	</body>
+	<script src="js/vue2.js"></script>
+	<script>
+		new Vue({
+			el: "#demo",
+			data: {
+				name:"abc",
+				news: [{
+					id: 3,
+					title: "aaaa",
+					sc: true
+				}, {
+					id: 1,
+					title: "bbbb",
+					sc: false
+				}, {
+					id: 2,
+					title: "cccc",
+					sc: true
+				}]
+			},
+			computed:{
+				newss:function(){
+					localStorage.setItem("news",JSON.stringify(this.news))
+					return this.news
+				}
+			}
+		})
+	</script>
+
+</html>
