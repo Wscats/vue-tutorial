@@ -38,7 +38,7 @@ Vue on some of the study DEMO, as well as some of my understanding of the Vue an
 |[滑动手势demo](https://wscats.github.io/vue-tutorial/滑动手势指令.html)|[搜索框聚焦指令](https://wscats.github.io/vue-tutorial/自定义搜索框聚焦指令.html)|
 |[置顶指令](https://wscats.github.io/vue-tutorial/vue自定义置顶指令.html)|[下拉刷新](https://wscats.github.io/vue-tutorial/下拉刷新.html)|
 |[ref获取节点](https://wscats.github.io/vue-tutorial/vue的ref.html)|[指令实现属性过滤](https://wscats.github.io/vue-tutorial/指令实现属性过滤.html)|
-|[旋转图形的登录验证](https://wscats.github.io/vue-tutorial/vue图形登录验证.html)||
+|[旋转图形的登录验证](https://wscats.github.io/vue-tutorial/vue图形登录验证.html)|[吸顶菜单](https://wscats.github.io/vue-tutorial/吸顶菜单.html)|
 
 
 ## 过滤器
