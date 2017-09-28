@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#father{
+				border: 1px solid red;
+				padding: 50px;
+			}
+			
+			#child{
+				border: 1px solid green;
+				margin-top: 20px;
+				padding: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>非父子组件通信</h1>
+		<p>
+			有时候两个组件也需要通信 (非父子关系)。在简单的场景下，可以使用一个空的 Vue 实例作为中央事件总线
+		</p>
+		<p>
+			<code>
+				var bus = new Vue();
+				<br />
+				bus.$emit("toXXX",message);
+				<br />
+				bus.$on("toXXX",function(message){});
+			</code>
+		</p>
+		<p>
+			<ul>
+				<li>使用 $on(eventName) 监听事件</li>
+				<li>使用 $emit(eventName) 触发事件</li>
+			</ul>
+		</p>
+		<div id="father">
+			<input v-model="name" />
+			<button @click="emit">发送消息给子组件</button>
+			<child></child>
+		</div>
+		<script src="js/vue2.js"></script>
+		<script>
+			//注意必须要实例化一个新的对象，作为父子组件的总线程去通信
+			var bus = new Vue()
+			Vue.component("child",{
+				template:`
+					<div id="child">
+					<input v-model="name" />
+						<button @click="emit">发送消息给父组件</button>
+						<p>{{name}}</p>
+					</div>
+				`,
+				data(){
+					return {
+						name:"wscats"
+					}
+				},
+				methods:{
+					emit(){
+						bus.$emit("toFather",this.name)
+					}
+				},
+				mounted(){
+					bus.$on("toChild",function(data){
+						this.name = data
+					}.bind(this))
+				}
+			})
+			new Vue({
+				el:"#father",
+				data:{
+					name:"corrine"
+				},
+				methods:{
+					emit(){
+						bus.$emit("toChild",this.name)
+					}
+				},
+				mounted(){
+					bus.$on("toFather",function(data){
+						this.name = data
+					}.bind(this))
+				}
+			})
+		</script>
+	</body>
+</html>
