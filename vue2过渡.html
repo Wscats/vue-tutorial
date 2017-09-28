@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			h1 {
+				color: red;
+			}
+			
+			p {
+				font-size: 50px;
+			}
+		</style>
+		<style>
+			/*fade*/
+			
+			.fade-enter-active,
+			.fade-leave-active {
+				transition: all 1s ease;
+			}
+			
+			.fade-enter,
+			.fade-leave-to
+			/* .fade-leave-active in below version 2.1.8 */
+			
+			{
+				opacity: 0;
+				font-size: 20px;
+			}
+			
+			.fade-enter-to,
+			.fade-leave
+			/* .fade-leave-active in below version 2.1.8 */
+			
+			{
+				font-size: 50px;
+			}
+		</style>
+		<!--bounce-->
+		<style>
+			.bounce-enter-active {
+				animation: bounce-in .5s;
+			}
+			
+			.bounce-leave-active {
+				animation: bounce-in .5s reverse;
+			}
+			
+			@keyframes bounce-in {
+				0% {
+					transform: scale(0);
+				}
+				50% {
+					transform: scale(1.5);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+		</style>
+		<!--list-->
+		<style>
+			.list-item {
+				display: inline-block;
+				margin-right: 10px;
+			}
+			
+			.list-enter-active,
+			.list-leave-active {
+				transition: all 1s;
+			}
+			
+			.list-enter,
+			.list-leave-to
+			/* .list-leave-active for below version 2.1.8 */
+			
+			{
+				opacity: 0;
+				transform: translateY(30px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="demo">
+			<img src="https://cn.vuejs.org/images/transition.png" />
+			<button v-on:click="show = !show">
+    			Toggle
+  			</button>
+			<h1>v-if</h1>
+
+			<transition name="fade">
+				<p v-if="show">hello</p>
+			</transition>
+
+			<h1>v-show</h1>
+
+			<transition name="bounce">
+				<p v-show="show">hello</p>
+			</transition>
+
+			<h1>v-for</h1>
+
+			<input v-model="searchQuery" />
+			<!--tag 为标签名  name为定的动画名   v-for必须要配合:key主键-->
+			<transition-group name="list" tag="ul">
+				<li v-for="f in filteredUsers" :key="f.age">{{f.name}}{{f.age}}</li>
+			</transition-group>
+		</div>
+		<script src="js/vue2.js"></script>
+		<script>
+			new Vue({
+				el: '#demo',
+				data: {
+					show: true,
+					users: [{
+						name: "laoyao",
+						age: 18
+					}, {
+						name: "laolan",
+						age: 19
+					}, {
+						name: "laoxie",
+						age: 16
+					}],
+					searchQuery: "",
+				},
+				computed: {
+					filteredUsers: function() {
+						var self = this;
+						return self.users.filter(function(user) {
+							return user.name.indexOf(self.searchQuery) !== -1
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
