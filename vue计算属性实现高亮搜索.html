@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<input v-model="search" />
+			<div v-html="computedhtml"></div>
+		</div>
+		<script src="../js/vue2.js"></script>
+		<script>
+			new Vue({
+				el:"#demo",
+				data:{
+					search:"",
+					html:"wscat corrine wscinest corrine"
+				},
+				computed:{
+					computedhtml:function(){
+						var arr = this.html.split(this.search)
+						var str = arr.join("<span style='color:red'>"+this.search+"</span>")
+						return str
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
