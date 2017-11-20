@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="demo"></div>
+  <script type="text/javascript" src="./js/vue2.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: "#demo",
+      data: {
+        name: "qd",
+        <!-- 这里可以动态改变color -->
+        color: "blue",
+        <!-- 这里可以动态元素标签值 -->
+        element: "h1"
+      },
+      methods: {
+        <!-- 渲染html片段 -->
+        render: function() {
+          return `<${this.element}>123</${this.element}>`
+        },
+        <!-- 设置样式 -->
+        style: function() {
+          return `<style>
+            p{
+                color: ${this.color}
+            }
+          </style>`
+        }
+      },
+      template: `
+        <div>
+          <p>1.表达式执行函数(设置html)</p>
+          <div v-html="render()"></div>
+
+          <p>2.表达式执行函数(设置属性值)</p>
+          <div :id="render()">设置属性值</div>
+
+          <p>2.表达式执行函数(设置样式)</p>
+          <div v-html="style()"></div>
+        </div>
+      `,
+      mounted: function() {
+        setTimeout(function(){
+          this.element = "div"
+        }.bind(this),1000)
+      }
+    })
+  </script>
+</body>
+
+</html>
