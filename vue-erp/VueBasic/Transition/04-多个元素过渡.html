@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<style type="text/css" media="screen">
+		.fade-enter{opacity: 0;}
+		.fade-enter-active{transition: all .5s;}
+
+		.fade-leave-active{opacity: 0; transition: all .5s;}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<fieldset>
+			<legend><h3>mode = in-out</h3></legend>
+			<div>
+				<input type="button" :value="red ? 'green' : 'red'" @click="red = !red" />
+				<br/>
+				<transition name="fade" mode="in-out">	
+					<img src="imgs/red.jpg" v-if="red" key="red"/>
+					<img src="imgs/green.jpg" v-else key="green"/>
+				</transition>			
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend><h3>mode = out-in</h3></legend>
+			<div>
+				<input type="button" :value="flag == 1 ? 'green' : flag == 2 ? 'yellw' : 'red'" @click="flag = flag == 1 ? 2 : flag == 2 ? 3 : 1" />
+				<br/>
+				<transition name="fade" mode="out-in">	
+					<img src="imgs/red.jpg" v-if="flag == 1" key="red"/>
+					<img src="imgs/green.jpg" v-else-if="flag == 2" key="green"/>
+					<img src="imgs/yellow.jpg" v-else key="yellow" />
+				</transition>				
+			</div>
+		</fieldset>	
+	</div>
+	
+</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				red: true,
+				flag: 1
+			}
+		})
+	</script>
+</body>
+</html>

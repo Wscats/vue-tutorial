@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<style type="text/css" media="screen">
+		.fade-enter-active{animation: fade-in .5s;}
+
+		.fade-leave-active{animation: fade-out .5s;}
+
+		@keyframes fade-in{
+			from{
+				opacity: 0;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+
+		@keyframes fade-out{
+			from{opacity: 1;}
+			to{opacity: 0;}
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="button" :value="show ? 'hide' : 'show'" @click="show = !show" />
+		<br/>
+		<transition name="fade">
+			<img src="imgs/green.jpg" v-if="show" />
+		</transition>
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				show: true
+			}
+		})
+	</script>
+</body>
+</html>

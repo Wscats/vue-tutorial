@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>组件</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../js/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <fieldset>
+                <legend><h3>组件单独作用域</h3></legend>
+                <p>{{count}}</p>
+                <component1/>
+            </fieldset>            
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    count: 10
+                },
+                methods: {
+                    increment: function(){
+                        this.count += 1;
+                    }
+                },
+                components:{
+                    'component1': {
+                        template: '<button v-on:click="increment">{{ count }}</button>',
+                        data: function(){
+                            //在组件里面 data 一定是 function 并返回一个对象
+                            return {
+                                count: 0
+                            }
+                        },
+                        methods: {
+                            increment: function(){
+                                this.count += 1;
+                            }
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

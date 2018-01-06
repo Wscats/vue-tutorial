@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>模版语法-指令</title>
+        <script type="text/javascript" src="../js/vue.min.js"></script>
+        <style type="text/css" media="screen">
+            [v-cloak]{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <fieldset>
+                <legend><h3>v-text</h3></legend>
+                <span v-text="mess"></span>
+                <!--效果等同于-->
+                <span>{{mess}}</span>                
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-html</h3></legend>
+                <div v-html="html"></div>               
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-show</h3></legend>
+                <div v-show="show">{{mess}}</div>              
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-if && v-else-if && v-else</h3></legend>
+                <div v-if="flag == 1">1</div>
+                <div v-else-if="flag == 2">2</div>
+                <div v-else>3</div>
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-for data: 3</h3></legend>
+                <!--
+                    结果会生成 3 个 div，
+                    value 的值分类为 1, 2, 3 
+                    index(下标) 的值分别为 0, 1, 2
+                -->
+                <div v-for="(value, index) in data1">
+                    <span v-text="'Value：' + value"></span>
+                    <span>{{'   Index：' + index}}</span>
+                </div>
+                <!--也可以这样写-->
+                <div v-for="value in data1">
+                    <span v-text="'Value：' + value"></span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-for data: 'abc'</h3></legend>
+                <!--
+                    结果会生成 data.length 个 div，
+                    value 的值分类为 a, b, c 
+                    index(下标) 的值分别为 0, 1, 2
+                -->
+                <div v-for="(value, index) in data2">
+                    <span v-text="'Value：' + value"></span>
+                    <span>{{'   Index：' + index}}</span>
+                </div>
+                <!--也可以这样写-->
+                <div v-for="value in data2">
+                    <span v-text="'Value：' + value"></span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-for data: {name: 'dk', age: 18}</h3></legend>
+                <!--
+                    结果会生成 data 属性个数个 div，
+                    value 的值分类为 dk, 18 
+                    key 的值分别为 name, age
+                -->
+                <div v-for="(value, key) in data3">
+                    <span v-text="'Value：' + value"></span>
+                    <span>{{'   Key：' + key}}</span>
+                </div>
+                <!--也可以这样写-->
+                <div v-for="value in data3">
+                    <span v-text="'Value：' + value"></span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-for data: [{name: 'dk1', age: 18}, {name: 'dk2', age: 20}]</h3></legend>
+                <!--
+                    结果会生成 data.length 个 div，
+                    obj 的值分类为 data[0], data[1] 
+                    index 的值分别为 0, 1
+                -->
+                <div v-for="(obj, index) in data4">
+                    <span v-text="'Value：' + JSON.stringify(obj)"></span>
+                    <span>{{'   Index：' + index}}</span>
+                </div>
+                <!--也可以这样写-->
+                <div v-for="obj in data4">
+                    <span v-text="'Value：' + JSON.stringify(obj)"></span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-on</h3></legend>
+                <div>{{mess}}</div>
+                <!--click事件直接绑定一个方法-->
+                <button v-on:click="say1">say1</button>
+                <!--click事件使用内联语句-->
+                <button @click="say2('调用了 say2')">say2</button>
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-bind</h3></legend>
+                <img v-bind:src="'../imgs/red.jpg'" />
+                <!--缩写方式-->
+                <img :src="'../imgs/yellow.jpg'" />
+            </fieldset>
+            <fieldset>
+                <legend><h3>v-model</h3></legend>
+                <!--仅限于表单元素-->
+                <input type="text" v-model="mess"/>
+            </fieldset>    
+            <fieldset>
+                <legend><h3>v-pre</h3></legend>
+                <!--把 {{}} 当字符串输出-->
+                <span v-pre>{{mess}}</span>
+            </fieldset> 
+            <fieldset>
+                <legend><h3>v-cloak</h3></legend>
+                <!--
+                  mess = 'abc'
+                  span 还没被 vue 解析的时候会显示 {{mess}}
+                  解析后会显示 123
+                  用于解决这两个转换的过程不友好的显示
+                  尤其是在页面加载过慢的情况很容易出现这种情况
+                -->
+                <span v-cloak>{{mess}}</span>
+            </fieldset>   
+            <fieldset>
+                <legend><h3>v-once</h3></legend>
+                <!--内容只解释一次，当改变 mess 时不会再次映射到 span-->
+                <span v-once>{{mess}}</span>
+            </fieldset>                                                                     
+        </div>
+    </body>
+    
+    <script>
+        
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                mess: "我是文本",
+                html: '<h2>我是 HTML 元素</h2>',
+                show: true,
+                flag: 1,
+                data1: 3,
+                data2: 'abc',
+                data3: {name: 'dk', age: 18},
+                data4: [{name: 'dk1', age: 18}, {name: 'dk2', age: 20}]
+            },
+            methods: {
+                say1: function(){
+                    this.mess = "调用了 say1"
+                },
+                say2: function(arg){
+                    this.mess = '直接绑定一个方法'
+                }
+            }
+        })
+    </script>
+</html>

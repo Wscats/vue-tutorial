@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="animate.css">
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click="show = !show">Toggle render</button>
+		<transition enter-active-class="animated jello" leave-active-class="animated bounceOutRight">
+			<div v-if="show"><img src="./imgs/green.jpg" /></div>
+		</transition>
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				show: true
+			}
+		})
+	</script>
+</body>
+</html>

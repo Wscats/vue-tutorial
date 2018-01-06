@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>自定义指令安全-datepicker</title>
+	<link rel="stylesheet" type="text/css" href="../js/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../js/bootstrap/datepicker/css/datepicker.css">
+
+	<script type="text/javascript" src="../js/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap/datepicker/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<fieldset>
+			<legend>jQuery 环境下使用 datepicker 插件</legend>
+			<input type="text" data-date-format="yyyy-mm-dd" id="datepicker">
+			<input type="button" value="保存" id="save">
+			<span></span>
+		</fieldset>
+		<fieldset>
+			<legend>使用 Vue 自定义指令 v-datepicker</legend>
+			<input type="text" data-date-format="yyyy-mm-dd" data-model="dataform.birthday" v-datepicker>
+			<input type="button" value="保存" @click="save">
+			<span>{{dataform.birthday}}</span>
+		</fieldset>
+		<fieldset>
+			<legend>$set 使用</legend>
+			<input type="button" value="set" @click="set">
+			<span>{{dataform.username}}</span>
+		</fieldset>			
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('#datepicker').datepicker({
+				language: 'zh-CN',
+				pickTime: false,
+				todayBtn: true,
+				autoclose: true
+			})
+			$('#save').click(function(){
+				$(this).next('span').text($('#datepicker').val())
+			})
+		})
+
+		Vue.directive('datepicker', function(element, binding, vnode){
+			// data = dataform.birthday
+			$(element).datepicker({
+				language: 'zh-CN',
+				pickTime: false,
+				todayBtn: true,
+				autoclose: true
+			}).on('changeDate', function(){
+	            //由于不是手动在 input 输入值，所以双向绑定 v-model 无效
+	            //所以需要手动改变实例的数据模型				
+				var data = $(element).data('model');
+				if(data){
+					// datas = ['dataform', 'birthday']
+					var datas = data.split('.');
+					//context = vm
+					var context = vnode.context;
+					//循环属性自动添加
+					datas.map((ele, idx) => {
+						//最后一个属性就直接赋值
+						if(idx == datas.length - 1){
+							context[ele] = element.value
+							console.log(context)
+						} else {
+							//动态添加属性
+							context = context[ele]
+							console.log(context)
+						}
+					})
+				}
+			})
+		})
+
+
+
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				dataform: {}
+			},
+			methods: {
+				save: function(){
+					console.log(this.dataform);
+					this.$set(this.dataform)
+				},
+				set: function(){
+					// this.dataform.username = '123'
+					this.$set(this.dataform, 'username', '123')
+				}
+			}
+		})
+	</script>
+</body>
+</html>

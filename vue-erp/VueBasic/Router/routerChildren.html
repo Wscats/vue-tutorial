@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>嵌套路由</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<script type="text/javascript" src="../js/vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>Hello App</h1>
+		<p>
+			<!-- 使用 router-link 组件来导航. -->
+			<!-- 通过传入 `to` 属性指定链接. -->
+			<!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+			<router-link to="/floor1">一楼</router-link>
+		</p>
+		<!-- 路由匹配到的组件将渲染在这里 -->
+		<router-view></router-view>
+	</div>
+
+	<script type="text/javascript">
+	    const Floor1 = { 
+	    	template: `
+	    		<div>
+	    			<h1>一楼</h1>
+	    			<router-link to="/floor1/floor2">二楼</router-link>
+	    			<router-view></router-view>
+	    		</div>` 
+	    };
+	    const Floor2 = { template: '<div><h1>二楼</h1></div>' };  
+
+		//user/123/profile
+		var router = new VueRouter({
+		  	routes: [{
+		  		path: '/floor1', 
+		  		component: Floor1,
+		  		children: [{
+		  			// floor2 会被渲染在 Floor1 的 <router-view> 中
+		  			path: 'floor2',
+		  			component: Floor2
+		  		}]
+		  	}],
+		})		
+
+		const app = new Vue({
+			el: '#app',
+		  	router
+		})
+	</script>
+
+</body>
+</html>

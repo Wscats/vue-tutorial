@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>事件修饰符</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<style type="text/css" media="screen">
+		div.stop, div.stop div{padding:20px 30px; border:solid 1px #ccc; background: #fff;}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<fieldset>
+			<legend><h3>阻止事件冒泡.stop</h3></legend>
+			<p>顺序：{{stop}}</p>
+		    <div id="div1" class="stop" @click.stop="event1(1)">
+		        <span>div1</span>
+		        <div id="div2" @click.stop="event2(2)">
+		            <span>div2</span>
+		            <div id="div3" @click.stop="event3(3)">
+		                <span>div3</span>
+		            </div>
+		        </div>
+		    </div>
+		</fieldset>
+		<fieldset>
+			<legend><h3>使用事件捕获模式.capture</h3></legend>
+			<p>顺序：{{capture}}</p>
+		    <div id="div4" class="stop" @click.capture="event1(4)">
+		        <span>div4</span>
+		        <div id="div5" @click.capture="event2(5)">
+		            <span>div5</span>
+		            <div id="div6" @click.capture="event3(6)">
+		                <span>div6</span>
+		            </div>
+		        </div>
+		    </div>			
+		</fieldset>
+		<fieldset>
+			<legend><h3>事件只作用本身.self</h3></legend>
+			<p>顺序：{{self}}</p>
+		    <div id="div7" class="stop" @click.self="event1(7)">
+		        <span>div7</span>
+		        <div id="div8" @click.self="event2(8)">
+		            <span>div8</span>
+		            <div id="div9" @click.self="event3(9)">
+		                <span>div9</span>
+		            </div>
+		        </div>
+		    </div>	
+		</fieldset>
+		<fieldset>
+			<legend><h3>阻止浏览器默认行为.prevent</h3></legend>
+			<a href="https://github.com/dk-lan" target="_blank" @click.prevent="prevent">dk's github</a>
+		</fieldset>		
+		<fieldset>
+			<legend><h3>只作用一次.once</h3></legend>
+			<a href="https://github.com/dk-lan" target="_blank" @click.once="prevent">dk's github</a>
+		</fieldset>	
+		<fieldset>
+			<legend><h3>修饰符可以串联.click.prevent.once</h3></legend>
+			<a href="https://github.com/dk-lan" target="_blank" @click.prevent.once="prevent">dk's github</a>
+		</fieldset>						
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data:{
+				stop: '',
+				capture: '',
+				self: ''
+			},
+			methods: {
+				randomColor: function(){
+	                var r = parseInt(Math.random() * 255);
+	                var g = parseInt(Math.random() * 255);
+	                var b = parseInt(Math.random() * 255);
+	                var color = 'rgb(' + r + ',' + g + ', ' + b + ')';
+	                return color;
+	            },
+	            changeBackground: function(id){
+					if(id < 4){
+						this.stop += ('div' + id + ' | ');
+					} else if(id < 7) {
+						this.capture += ('div' + id + ' | ');
+					} else {
+						this.self += ('div' + id + ' | ');
+					}
+					document.getElementById('div' + id).style.background = this.randomColor();
+	            },
+				event1: function(id){
+					this.changeBackground(id);
+				},
+				event2: function(id){
+					this.changeBackground(id);
+				},
+				event3: function(id){
+					this.changeBackground(id);
+				},															
+				prevent: function(event){
+					event.target.style.color = this.randomColor();
+				}
+			}
+		})
+	</script>
+</body>
+</html>

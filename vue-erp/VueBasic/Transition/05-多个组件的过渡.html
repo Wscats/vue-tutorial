@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<style type="text/css" media="screen">
+		.fade-enter{opacity: 0;}
+		.fade-enter-active{transition: all .5s;}
+
+		.fade-leave-active{opacity: 0; transition: all .5s;}
+	</style>
+</head>
+<body>
+	<div id="app" style="display: none;">
+		<input type="button" value="changeLight" @click="changeLight" />
+		<br/>
+		<transition name="fade" mode="out-in">	
+			<p :is="show" :title="show"></p>
+		</transition>
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				show: 'red',
+				data_title: 'gz1705'
+			},
+			methods:{
+				changeLight: function(){
+					this.show = this.show == 'red' ? 'green' : 'red';
+				}
+			},
+			components: {
+				red: {
+					template: '<img src="imgs/red.jpg"/>'
+				},
+				green: {
+					template: '<img src="imgs/green.jpg"/>'
+				}
+			}
+		})
+	</script>
+
+	<div id="app2">
+		<input type="button" name="" value="show" @click="changeLight">
+		<br>
+		<transition name="fade" mode="out-in">
+			<p :is="show"></p>
+		</transition>
+	</div>
+
+	<script type="text/javascript">
+		var vm2 = new Vue({
+			el: '#app2',
+			data: {
+				show: 'red'
+			},
+			methods: {
+				changeLight: function(){
+					this.show = this.show == 'red' ? 'green' : this.show == 'green' ? 'yellow' : 'red';
+				}
+			},
+			components: {
+				red: {
+					template: '<img src="imgs/red.jpg"/>'
+				},
+				green: {
+					template: '<img src="imgs/green.jpg"/>'
+				},
+				yellow: {
+					template: '<img src="imgs/yellow.jpg"/>'
+				}							
+			}
+		})
+	</script>
+</body>
+</html>

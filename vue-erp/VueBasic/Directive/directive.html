@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>自定义指令</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<fieldset>
+			<legend><h3>全局指令</h3></legend>
+			<input type="text" value="" v-global />
+		</fieldset>
+		<fieldset>
+			<legend><h3>局部指令</h3></legend>
+			<input type="text" value="" v-private />
+		</fieldset>
+	</div>
+
+	<script type="text/javascript">
+		// 注册一个全局自定义指令 v-global
+		Vue.directive('global', {
+			// 当绑定元素插入到 DOM 中。
+			inserted: function(element){
+				element.value = "世界和平";
+				element.focus();
+			}
+		})
+
+
+		var vm = new Vue({
+			el: '#app',
+			directives: {
+				//注册一个局布指令 v-private
+				private: function(element){
+					element.style.background = '#ccc';
+					element.value = "世界和平"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

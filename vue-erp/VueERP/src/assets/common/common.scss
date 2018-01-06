@@ -1,0 +1,49 @@
+﻿@import './global.scss';
+
+html{width: 100%; height: 100%;}
+body{font-family:"open sans","Helvetica Neue",Helvetica,Arial,sans-serif; color:#676a6c; width: 100%; height: 100%; font-size: 13px}
+ul{padding:0; margin:0;}
+li{list-style:none;}
+
+/*a*/
+a, a:focus{color:#000;}
+a:hover{text-decoration:none; color: $main-color;}
+a:active{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:link{text-decoration:none;}
+
+/*validattion*/
+input.valid-false{border-color: #ed5565;}
+input.valid-true{border-color: $main-color;}
+div.valid-false{color: #ed5565; font-size: 12px;}
+
+/*reset btn-primary*/
+.btn-primary, .btn-primary:focus{background-color: $main-color; border-color: $main-color; color: #fff;}
+.btn-primary:hover{background-color: $main-color-hover; border-color: $main-color-hover;}
+.badge-primary{background-color: $main-color;}
+
+.dk-toolbar{padding: 10px 20px;background-color: #EFEFEF;width: 100%;height: 50px;text-align: right; }
+.dk-toolbar.dk-grid-toolbar {text-align: left;}
+.dk-toolbar>.btn{margin-right: 10px;}
+.dk-toolbar>.btn.btn-goback{background-color:#e6674a; border-color:#e6674a;}
+
+.dk-form{padding:10px;}
+.dk-form>form.form-horizontal>div.form-group{margin:0; margin-bottom:15px; min-height:34px;}
+.dk-form>form.form-horizontal>div.form-group>div{padding:0;}
+
+.dk-form-element{position:relative;}
+.dk-form-element>lable.valid-false, .dk-form-element>.input-group>lable.valid-false{position:absolute; top:0; right:0; bottom:0; left:0; background-color:#ff0000; opacity:0.5; border-radius:4px; line-height:34px; color:#fff; padding:0 5px; z-index:2999; border-radius:0;}
+.dk-form-element>input.valid-true{border-color:green;}
+
+.dk-imagegrid{width:100%; height:160px; overflow:auto;}
+.dk-imagegrid>.image-element{width:200px; float:left; margin-right:10px;}
+.dk-imagegrid>.image-element:last-child{margin:0;}
+.dk-imagegrid>.image-element>img{width:200px; height:150px;}
+
+.dk-search-form{height:auto; padding:10px 0; border:solid 1px #ccc;}
+.dk-search-form>form>.form-group{margin:15px 0;}
+.dk-search-form>form>.form-group:first-child{margin-top:0;}
+.dk-search-form>form>.form-group:last-child{margin-bottom:0;}
+.dk-search-form>form>.form-group>.element-group>.dk-form-element{width:50%; float:left;}
+
+.form-header{width:100%; height:38px; line-height:38px; font-size:18px; font-weight:200; color:#666666; padding:0 10px; border-bottom: solid 1px #ccc; margin-bottom:10px;}

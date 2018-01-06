@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vue 实例化时基本属性-监听器</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="div1">
+		<fieldset>
+			<legend><h3>直接监听</h3></legend>
+			<input type="text" v-model="a">
+			<p>旧值：{{aOldVal}}</p>
+			<p>新值：{{aNewVal}}</p>
+		</fieldset>
+		<fieldset>
+			<legend><h3>调用方法实现监听</h3></legend>
+			<input type="text" v-model="b">
+			<p>旧值：{{bOldVal}}</p>
+			<p>新值：{{bNewVal}}</p>
+		</fieldset>	
+		<fieldset>
+			<legend><h3>watch 和 computed 同时作用一个属性，watch 无效</h3></legend>
+			<input type="text" v-model="c">
+		</fieldset>				
+	</div>
+	
+	<script type="text/javascript">
+		//监听属性，当属性发生改变的时候会触发对应的 watch
+		//watch 监听的是 data 里面的属性值
+		//computed 的 getter 和 setter 是获取新的属性值变化
+		//watch 不能听到到 computed 的属性
+		var vm = new Vue({
+			el: '#div1',
+			data: {
+				a: 1,
+				aOldVal: '',
+				aNewVal: '',
+				b: 2,
+				bOldVal: '',
+				bNewVal: '',
+				changeB: function(val, oldVal){
+					this.bOldVal = oldVal;
+					this.bNewVal = val;					
+					console.log('new: %s, old: %s', val, oldVal)
+				}
+			},
+			computed: {
+				c: {
+					get: function(){
+						return '';
+					},
+					set: function(newVal){
+						console.log('set val %s', newVal);
+					}
+				}				 
+			},
+			watch: {
+				a: function (newVal, oldVal) {
+					this.aOldVal = oldVal;
+					this.aNewVal = newVal;
+				  	console.log('new: %s, old: %s', newVal, oldVal)
+				},
+				// 方法名
+				b: 'changeB',
+				c: function(){
+					//不起效
+					console.log('watch')
+				}
+			}
+		})
+
+
+	</script>
+</body>
+</html>

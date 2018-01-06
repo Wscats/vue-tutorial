@@ -1,0 +1,56 @@
+.dk-spinner-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: .4;
+    z-index: 2090;
+}
+
+.dk-spinner-three-bounce.dk-spinner {
+    position: absolute;
+    top: 53%;
+    left: 47%;
+    background-color: none!important;
+    z-index: 2099;
+    margin: 0 auto;
+    width: 70px;
+    text-align: center;    
+}
+
+.dk-spinner-three-bounce div {
+    width: 18px;
+    height: 18px;
+    background-color: #1ab394;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: dk-threeBounceDelay 1.4s infinite ease-in-out;
+    animation: dk-threeBounceDelay 1.4s infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.dk-spinner-three-bounce .dk-bounce1 {
+    -webkit-animation-delay: -.32s;
+    animation-delay: -.32s;
+}
+
+.dk-spinner-three-bounce .dk-bounce2 {
+    -webkit-animation-delay: -.16s;
+    animation-delay: -.16s;
+}
+
+@-webkit-keyframes dk-threeBounceDelay{
+    0%,
+    100%,
+    80%{-webkit-transform:scale(0); transform:scale(0)}
+    40%{-webkit-transform:scale(1);transform:scale(1)}
+}
+@keyframes dk-threeBounceDelay{
+    0%,
+    100%,
+    80%{-webkit-transform:scale(0);transform:scale(0)}
+    40%{-webkit-transform:scale(1);transform:scale(1)}
+}

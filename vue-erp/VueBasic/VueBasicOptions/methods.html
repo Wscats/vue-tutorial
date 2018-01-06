@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vue 实例化时基本属性-事件处理器</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<fieldset>
+			<legend><h3>简单的事件处理</h3></legend>
+		    <input type="button" @click="count += 1" value="监听事件">
+		    <span>{{count}}</span>			
+		</fieldset>
+		<fieldset>
+			<legend><h3>方法事件处理器</h3></legend>
+		    <input type="button" @click="counter" value="方法事件处理器">
+		    <span>{{count}}</span>
+		</fieldset>	
+		<fieldset>
+			<legend><h3>event 对象</h3></legend>
+			<!--默认会传 $event 对象过去 $event 对象是 Vue 对事件的 event 对象的继承实现 -->
+		    <input type="button" @click="eventer" count="1" value="event 对象">
+		    <span>{{count}}</span>
+		</fieldset>	
+		<fieldset>
+			<legend><h3>传参数</h3></legend>
+		    <input type="button" @click="parameter(10, $event)" value="事件传参数">
+		    <span>{{count}}</span>
+		</fieldset>						
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data:{
+				count: 0
+			},
+			methods: {
+				counter: function(){
+					this.count += 1;
+				},
+				eventer: function(event){
+					var _count = event.target.getAttribute('count') * 1;
+					this.count += _count;
+					event.target.setAttribute('count', _count);
+				},
+				parameter: function(n, event){
+					this.count += n;
+					event.target.setAttribute('disabled', true);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

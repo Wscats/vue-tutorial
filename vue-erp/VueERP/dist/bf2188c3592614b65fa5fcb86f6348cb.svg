@@ -1,0 +1,1 @@
+module.exports = __webpack_public_path__ + "src/assets/font-awesome/fonts/fontawesome-webfont.svg";

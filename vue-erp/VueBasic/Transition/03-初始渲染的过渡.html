@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<style type="text/css" media="screen">
+		.fade-enter{opacity: 0;}
+		.fade-enter-active{transition: all 3s;}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<transition appear appear-class="fade-enter" appear-active-class="fade-enter-active">
+			<img src="imgs/green.jpg" />
+		</transition>
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app'
+		})
+	</script>
+</body>
+</html>

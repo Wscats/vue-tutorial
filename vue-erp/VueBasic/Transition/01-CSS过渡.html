@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<style type="text/css" media="screen">
+		/*初始状态*/
+		.fade-enter{opacity: 0;}
+		/*已经准备就绪*/
+		.fade-enter-active{transition: all .5s;}
+		/*已经消失*/
+		.fade-leave-active{opacity: 0; transition: all .5s;}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="button" :value="show ? 'hide' : 'show'" @click="show = !show" />
+		<br/>
+		<transition name="fade">
+			<img src="imgs/green.jpg" v-show="show" />
+		</transition>
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				show: true
+			}
+		})
+	</script>
+</body>
+</html>

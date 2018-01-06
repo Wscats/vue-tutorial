@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>钩子函数</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="text" v-demo="{color:'red'}">
+		<p v-for="o in order">{{'当前执行：' + o}}</p>
+	</div>
+
+	<script type="text/javascript">
+
+		Vue.directive('demo', {
+			//被绑定元素插入父节点时调用
+			inserted: function(element, binding, vnode){
+				vnode.context.order.push('inserted');
+				// vm.order.push('inserted')
+			},
+			//只调用一次，指令第一次绑定到元素时调用，
+			//用这个钩子函数可以定义一个在绑定时执行一次的初始化动作
+			bind: function(element, binding, vnode){
+				vnode.context.order.push('bind');
+				element.style.color = binding.value.color
+			},
+			//被绑定元素所在的模板更新时调用，而不论绑定值是否变化
+			//实例 vm.text 发生更新时会触发此方法，因为 text 绑定到了 input 元素
+			//实例 vm.order 发生更新时会触发此方法，因为 order 绑定到了 p 元素
+			//实例 vm.num 发生更新时不会触发此方法，因为 num 没有绑定到视图标签
+			update: function(element, binding, vnode){
+				console.log('update')
+			},
+			//被绑定元素所在模板完成一次更新周期时调用。
+			//实例 vm.text 发生更新时会触发此方法，因为 text 绑定到了 input 元素
+			//实例 vm.order 发生更新时会触发此方法，因为 order 绑定到了 p 元素
+			//实例 vm.num 发生更新时不会触发此方法，因为 num 没有绑定到视图标签
+			componentUpdated: function(element, binding, vnode){
+				console.log('componentUpdated')
+			}
+		})
+
+		var vm = new Vue({
+			el: '#app',
+			data:{
+				text: '钩子函数',
+				order: [],
+				num: 1
+			}
+		})
+	</script>
+</body>
+</html>

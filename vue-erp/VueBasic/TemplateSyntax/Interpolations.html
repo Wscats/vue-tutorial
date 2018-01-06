@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>模版语法-插值</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- 文本 -->
+		<fieldset>
+			<legend>文本</legend>
+			<div>{{message}}</div>
+		</fieldset>
+
+		<!-- 纯 HTML -->
+		<fieldset>
+			<legend>纯 HTML</legend>
+			<div v-html="rawHtml"></div>
+		</fieldset>		
+
+		<!-- 属性 -->
+		<fieldset>
+			<legend>属性</legend>
+			<img :src="src" alt="">
+            <img v-bind:src="'../imgs/red.jpg'" alt="">
+		</fieldset>	
+
+		<!-- js 表达式 -->
+		<fieldset>
+			<legend>js 表达式</legend>
+			<div>{{1 + 1}}</div>
+			<div>{{status ? 'YES' : 'NO'}}</div>
+			<div>{{message.split('').reverse().join('')}}</div>
+		</fieldset>	
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				message: '我是文本',
+				rawHtml: '<h1>我是 h1 标签</h1>',
+				src: '../imgs/green.jpg',
+				status: true,
+			}
+		})
+	</script>
+</body>
+</html>
+

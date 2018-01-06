@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vue 实例化时基本属性-计算属性</title>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<fieldset>
+			<legend><h3>正常文本 message</h3></legend>
+			<p>{{message}}</p>
+		</fieldset>
+		<fieldset>
+			<legend><h3>通过返转 message 计算的结果</h3></legend>
+			<p>{{reversedMessage}}</p>
+		</fieldset>
+		<fieldset>
+			<legend><h3>computed getter</h3></legend>
+			<p>{{fullName}}</p>
+		</fieldset>	
+		<fieldset>
+			<legend><h3>computed setter</h3></legend>
+			<p>{{fullName}}</p>
+			<input type="text"  v-model="newName">
+			<input type="button" value="changeName" @click="changeName(1)">			
+			<input type="button" value="changeName" @click="changeName(1)">
+			<input type="button" value="changeName" @click="changeName(1)">
+		</fieldset>			
+
+	</div>
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				message: 'ABC',
+				firstName:'DK',
+				lastName: 'Lan',
+				newName: ''
+			},
+			computed: {
+				//computed 这个属性是对 data 的属性进行操作或者说逻辑控制
+				// a computed getter
+				reversedMessage: function () {
+				  // `this` points to the vm instance
+				  return this.message.split('').reverse().join('')
+				},
+				fullName:{
+					get: function(){
+						console.log(321);
+						return this.firstName + '.' + this.lastName
+					},set: function(newValue){
+						this.firstName = newValue
+					}
+				}
+			},
+		    methods: {
+		    	changeName: function(){
+		    		this.fullName = this.newName;
+		    	}
+		    }
+		})
+	</script>
+</body>
+</html>

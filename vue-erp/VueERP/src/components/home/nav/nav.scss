@@ -1,0 +1,64 @@
+@import '../../../assets/common/global.scss';
+.dk-nav-content{position: absolute; top: 0; bottom: 0; left: 0; width: 228px; border-right: solid 1px #ccc;
+	overflow-x: hidden; overflow-y: auto;
+	transition: width 0.5s;
+	.dk-nav-item{
+		max-height: 40px;
+		overflow: hidden;
+		transition: max-height 0.5s;
+		border-bottom: solid 1px #ccc;
+		>a:not(.btn){
+			padding: 10px 15px; display: block;
+			overflow: hidden; white-space: nowrap; text-overflow:ellipsis;
+			i{color: $main-color; margin-right: 5px; font-size: 16px;}
+			>i:last-child{float: right; margin-top: 2px; transition: transform 0.5s;}
+		}
+		.dk-sub-nav{
+			width: 100%; 
+			overflow: hidden;
+			li{
+				width: 100%;
+				>a{
+					display: block;
+					padding-left: 37px;
+					padding-top: 5px;
+					padding-bottom: 5px;
+				}
+			}
+		}
+		*:not(:first-child){
+			transition: opacity 0.5s;
+			opacity: 1;
+		}		
+	}
+	.dk-nav-item.active{
+		max-height: 200px;
+		transition: max-height 0.5s;
+		>a{
+			background-color: #D9D9D9;
+			>i:last-child{transition: transform 0.5s;float: right; margin-top: 2px; transform: rotate(-90deg);}
+		}
+	}
+	.dk-nav-item.nav-toggle{
+		text-align: right;
+		height: 50px;
+		max-height: 50px;
+		padding: 10px 20px;
+		.btn{
+			padding: 3px 8px;
+		}
+	}
+}
+
+.dk-nav-content.toggle{
+	transition: width 0.5s;
+	width: 50px;
+	.dk-nav-item {
+		text-align: center;
+		padding: 5px 0;
+		*:not(:first-child){
+			transition: opacity 0.5s;
+			opacity: 0;
+		}
+	}
+}

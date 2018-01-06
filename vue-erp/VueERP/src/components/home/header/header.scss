@@ -1,0 +1,49 @@
+@import '../../../assets/common/global.scss';
+
+.dk-header{
+	position: fixed; 
+	top: 0; 
+	width: 100%; 
+	height: 42px; 
+	border-bottom: solid 1px #ccc;
+	/*logo*/
+	>ul:first-child{
+		width: 200px;
+		height: 100%;
+		float: left;
+		li{
+			width: 100%;
+			height: 100%;
+			padding: 4px 15px;
+			font-family: 'Raleway', sans-serif;
+			font-size: 25px;
+			a{
+				color: #666666;
+			}
+		}
+	}
+	/*right*/
+	>ul:last-child{
+		height: 100%;
+		float: right;
+		padding-right: 20px;
+		li{
+			// width: 48px;
+			height: 100%;
+			position: relative;
+			text-align: center;
+			padding: 15px;
+			float: left;
+			a{color: #666666;}
+			i{font-size: 18px;}
+			span{position: absolute; top: 5px; left: 3px; font-size: 10px; padding: 2px 5px;}
+		}
+		li:last-child{
+			width: auto;
+			padding: 15px;
+		}
+		li:hover{
+			background-color: #eceeef;
+		}
+	}
+}
