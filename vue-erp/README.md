@@ -13,16 +13,16 @@
 - 认识 Vue
 - 认识数据驱动模式
 - 认识 MVVM 模式
-- [模版语法](https://github.com/wscats/vue-erp/VueBasic/TemplateSyntax)
-- [样式绑定](https://github.com/wscats/vue-erp/VueBasic/StyleBinding)
-- [Vue 实例化时基本属性](https://github.com/wscats/vue-erp/VueBasic/VueBasicOptions)
-- [修饰符](https://github.com/wscats/vue-erp/VueBasic/Modifiers)
-- [组件](https://github.com/wscats/vue-erp/VueBasic/Component)
-- [指令](https://github.com/wscats/vue-erp/VueBasic/TemplateSyntax#指令)
-- [自定义指令](https://github.com/wscats/vue-erp/VueBasic/Directive)
-- [动画和过度效果](https://github.com/wscats/vue-erp/VueBasic/Transition)
-- [路由](https://github.com/wscats/vue-erp/VueBasic/Router)
-- [Vuex](https://github.com/wscats/vue-erp/VueBasic/Vuex)
+- [模版语法](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/TemplateSyntax)
+- [样式绑定](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/StyleBinding)
+- [Vue 实例化时基本属性](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/VueBasicOptions)
+- [修饰符](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Modifiers)
+- [组件](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Component)
+- [指令](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/TemplateSyntax#指令)
+- [自定义指令](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Directive)
+- [动画和过度效果](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Transition)
+- [路由](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Router)
+- [Vuex](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Vuex)
 
 # 认识 Vue
 关于 Vue 的描述有不少，不外乎都会拿来与 Angular 和 React 对比，同样头顶 MVVM 双向数据驱动设计模式光环的 Angular 自然被对比的最多，但到目前为止，Angular 在热度上已明显不及 Vue，性能已成为最大的诟病。
