@@ -38,9 +38,9 @@ Vue on some of the study DEMO, as well as some of my understanding of the Vue an
 |[CNode社区DEMO](https://wscats.github.io/vue-tutorial/cnode-vue-demo/public/)|[图灵机器人](https://wscats.github.io/vue-tutorial/图灵机器人.html)|
 
 ## 表达式
-| Demo | |
-| --------- | --------- |
-|[Vue表达式执行函数](https://wscats.github.io/vue-tutorial/vue表达式执行函数.html)||
+| Demo |
+| --------- |
+|[Vue表达式执行函数](https://wscats.github.io/vue-tutorial/vue表达式执行函数.html)|
 
 ## 生命周期
 | Demo | |
