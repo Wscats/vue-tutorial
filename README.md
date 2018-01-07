@@ -16,7 +16,7 @@ Vue on some of the study DEMO, as well as some of my understanding of the Vue an
 - [自定义指令](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Directive)
 - [动画和过度效果](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Transition)
 - [路由](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Router)
-- [Vuex](https://github.com/Wscats/vue-tutorial/tree/gh-pages/vue-erp/VueBasic/Vuex)
+- Vuex
 
 
 # Vue文档
