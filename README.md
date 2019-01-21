@@ -1,9 +1,5 @@
-# Vue
-
-Vue on some of the study DEMO, as well as some of my understanding of the Vue and angular two framework, the integration of some of the documents, but also can be fork or star
-
-
 # 技术点目录
+
 - 认识 Vue
 - 认识数据驱动模式
 - 认识 MVVM 模式
