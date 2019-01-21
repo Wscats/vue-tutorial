@@ -94,7 +94,7 @@ Vue on some of the study DEMO, as well as some of my understanding of the Vue an
 | --------- | --------- |
 |[组件demo](https://wscats.github.io/vue-tutorial/组件.html)|[点击预览大图](https://wscats.github.io/vue-tutorial/预览图片.html)|
 |[新闻列表DEMO](https://wscats.github.io/vue-tutorial/新闻列表.html)|[$emit和$on实现非父子组件通信](https://wscats.github.io/vue-tutorial/通过$emit和$on实现非父子组件通信.html)|
-|[$parent和$children实现组件通信](https://wscats.github.io/vue-tutorial/vue通过$parent和$children实现组件通信.html)||
+|[$parent和$children实现组件通信](https://wscats.github.io/vue-tutorial/vue通过$parent和$children实现组件通信.html)|[组件keep-alive实现选项卡](https://wscats.github.io/vue-tutorial/vue的keep-alive.html)|
 
 
 ## Vuex
