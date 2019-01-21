@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script src="js/vue2.js"></script>
+    <script>
+        Vue.component("tab-cp1", {
+            template: `
+                <div>
+                    <p>tab1组件</p>
+                </div>
+            `
+        })
+        Vue.component("tab-cp2", {
+            template: `
+                <div>
+                    <p>tab2组件</p>
+                </div>
+            `
+        })
+        new Vue({
+            el: "#demo",
+            data: {
+                tabs: ['cp1', 'cp2'],
+                currentTab: 'cp1'
+            },
+            template: `
+                <div>
+                    <ul>
+                        <li @click="currentTab = tab" v-for="tab in tabs" v-text="tab"></li>
+                    </ul>
+                    <keep-alive>
+                        <component
+                        :is="currentTabComponent"
+                        class="tab"
+                        ></component>
+                    </keep-alive>
+                </div>
+            `,
+            computed: {
+                currentTabComponent() {
+                    return 'tab-' + this.currentTab.toLowerCase()
+                }
+            }
+        })
+    </script>
+</body>
+</html>
