@@ -55,6 +55,7 @@
 | --------- | --------- |
 |[过渡demo](https://wscats.github.io/vue-tutorial/过渡.html)|[过渡demo2](https://wscats.github.io/vue-tutorial/过渡2.html)|
 |[列表筛选和过渡效果](https://wscats.github.io/vue-tutorial/vue列表筛选和过渡效果.html)|[过渡v2](https://wscats.github.io/vue-tutorial/vue2过渡.html)|
+|[过渡实现轮播图效果](https://wscats.github.io/vue-tutorial/vue过度实现轮播图.html)||
 
 ## 表单
 | Form ||
