@@ -86,4 +86,4 @@
 | Other ||
 | --------- | --------- |
 |[调用百度地图接口实现查询路线直线距离](https://wscats.github.io/vue-tutorial/vue调用百度地图接口实现查询路线直线距离.html)|[配合Echarts图表](https://wscats.github.io/vue-tutorial/vue和echarts.html)|
-|[配合qrcode.js生成二维码](https://wscats.github.io/vue-tutorial/vue生成二维码.html)||
+|[配合qrcode.js生成二维码](https://wscats.github.io/vue-tutorial/vue生成二维码.html)|[配合draggable实现拖拽](https://wscats.github.io/vue-tutorial/vue配合draggable实现拖拽.html)|
