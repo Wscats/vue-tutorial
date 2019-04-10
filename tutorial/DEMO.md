@@ -81,6 +81,7 @@
 | Vuex |
 | --------- |
 |[Vuex组件间的通信](https://wscats.github.io/vue-tutorial/vuex组件间的通信demo.html)|
+|[observable实现组件通信](https://wscats.github.io/vue-tutorial/observable实现组件通信.html)|
 
 ## 其他
 | Other ||
